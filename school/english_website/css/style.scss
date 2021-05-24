@@ -58,33 +58,12 @@ body{
     }
 }
 
-@keyframes drop_down_first{
-    from{
-        border-radius: 10px;
-    }
-    to{
-        border-radius: 10px 10px 0px 0px;
-    }
-}
-@keyframes drop_down_middle{
-    from{
-        border-radius: 10px;
-    }
-    to{
-        border-radius: 0px;
-    }
-}
-@keyframes drop_down_last{
-    from{
-        border-radius: 10px;
-    }
-    to{
-        border-radius: 0px 0px 10px 10px;
-    }
-}
-
 div.dropdown-block{
-    $size_button_height: 60%;
+    $animation_lenght: 0.2s;
+    $animation_lenght_stayopen: 0.2s;
+    $animation_type: ease-in-out;
+
+    $size_button_height: 46%;
     $color_main_button: lighten(purple, 10%);
     $color_main_button_hover: lighten($color_main_button, 20%);
     $color_main_button_text: white;
@@ -93,129 +72,189 @@ div.dropdown-block{
     $color_sub_button_hover: lighten($color_sub_button, 20%);
     $color_sub_button_text: white;
     $color_sub_button_hover_text: black;
+    $animation_dropdown_open: transform $animation_lenght $animation_type;
+    $animation_dropdown_close: transform $animation_lenght $animation_lenght_stayopen $animation_type;
+    $animation_border_open: border-radius $animation_lenght $animation_type;
+    $animation_border_close: border-radius $animation_lenght $animation_lenght_stayopen $animation_type;
 
     height: $size_button_height;
 
-    ul.dropdown-content{
-        position: relative;
-        list-style-type: none;
-        height: 100%;
-
-        @for $i from 2 through 20 {
-            :nth-child(#{$i}){
-                div{
-                    transform: translateY(calc(-100% *  (#{$i} - 1)));
-                }
+    &:hover{
+        /* ANIMATION BORDER RADIUS ON HOVER */
+        div.dropdown-header, div.dropdown-content > div{
+            transition: $animation_border_open, $animation_dropdown_open;
+        }
+        div.dropdown-header{
+            border-radius: 10px 10px 0px 0px;
+        }
+        div.dropdown-content{
+            :first-child{
+                border-radius: 10px
             }
-            &:hover{
-                :nth-child(#{$i}){
-                    div{
-                        transform: translateY(0);
-                    }
-                }
+            :not(:first-child):not(:last-child){
+                border-radius: 0px;
+            }
+            :last-child{
+                border-radius: 0px 0px 10px 10px;
+            }
+        }
+        /* ANIMATION BORDER RADIUS ON HOVER END */
+
+        div.dropdown-header{
+            background-color: $color_main_button_hover;
+            p{
+                color: $color_main_button_hover_text;
             }
         }
 
-        li div{
+        /* ANIMATION ON HOVER */
+        div.dropdown-content{
+            & > div{
+                transform: translateY(0) !important;
+            } 
+        }
+    }
+
+    /* Style ALL boxes (including header) */
+    div.dropdown-header, div.dropdown-content > div{
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+
+        border-radius: 10px;
+        transition: $animation_border_close, $animation_dropdown_close;
+    }
+
+    div.dropdown-header{
+        height: 100%;
+        z-index: 1;
+
+        background-color: $color_main_button;
+
+        p{
+            color: $color_main_button_text;
+        }
+    }
+
+    div.dropdown-content{
+        z-index: -1;
+
+        height: 100%;
+        position: relative;
+        transform: translateY(-100%);
+
+        div:nth-child(1){
+            transform: translateY(-000%)
+        }
+        div:nth-child(2){
+            transform: translateY(-100%)
+        }
+        div:nth-child(3){
+            transform: translateY(-200%)
+        }
+        div:nth-child(4){
+            transform: translateY(-300%)
+        }
+
+
+
+        & > div{
+            height: 100%;
+            position: relative;
+            // transition: border-radius 0s 0.2s, $animation_dropdown;
             background-color: $color_sub_button;
-            color: $color_sub_button_text;
+
+            p{
+                color: $color_sub_button_text;
+            }
 
             &:hover{
                 background-color: $color_sub_button_hover;
-
                 p{
                     color: $color_sub_button_hover_text;
                 }
             }
+
+
         }
-        :first-child{
-            z-index: 1;
-
-            div{
-                background-color: $color_main_button;
-                color: $color_main_button_text;
-                
-                &:hover{
-                    background-color: $color_main_button_hover;
-
-                    p{
-                        color: $color_main_button_hover_text;
-                    }
-                }
-            }
-        }
-
-
-
-        :first-child{
-            div{
-                animation:  drop_down_first 0.2s reverse forwards;
-            }
-        }
-        :not(:first-child):not(:last-child){
-            div{
-                animation: drop_down_middle 0.2s reverse forwards;
-            }
-        }
-        :last-child{
-            div{
-                animation: drop_down_last 0.2s reverse forwards;
-            }
-        }
-
-        &:hover{
-            :first-child{
-                div{
-                    animation: drop_down_first 0.2s normal forwards;
-                }
-            }
-            :not(:first-child):not(:last-child){
-                div{
-                    animation: drop_down_middle 0.2s normal forwards;
-                }
-            }
-            :last-child{
-                div{
-                    animation: drop_down_last 0.2s normal forwards;
-                }
-            }
-        }
-
         
-
-        &:hover{
-            li div{
-                transition: transform 0.2s ease-in-out !important;
-            }
-        }
-
-        li{
-            height: 100%;
-            flex: 1; /* additionally, equal width */
-            position: relative;
-            top: 0px;
-            left: 0px;
-            z-index: -1;
-
-            div{
-                position: relative;
-                top: 0px;
-                left: 0px;
-                height: 100%;
-                width: 100%;
-                padding: 0px 20px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                transition: transform 0.2s ease-in-out 0.2s;
-
-                border-radius: 10px;
-                
-                p{
-                    white-space: nowrap;
-                    height: min-content;
-                }
-            }
-        }
-    }    
+    }
 }
+
+@keyframes face_grow{
+    from{
+        width: 200px;
+        height: 200px;
+    }
+    to{
+        width: 450vw;
+        height: 450vh;
+    }
+}
+@keyframes open_mouth{
+    from{
+        height: 10px;
+        transform: translateY(0px);
+    }
+    to{
+        height: 100px;
+        transform: translateY(-50px);
+    }
+}
+@keyframes open_mouth_eyes{
+    from{
+        transform: translateY(0px);
+    }
+    to{
+        transform: translateY(-50px);
+    }
+}
+@keyframes fade_out_face{
+    from{
+        opacity: 100;
+    }
+    to{
+        opacity: 0;
+        display: none;
+    }
+}
+
+.loader{
+    background-color: rgba(0, 0, 0, 0.507);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p{
+        color: white;
+    }
+
+    div.face{
+        svg{
+            animation: face_grow 2s 2s normal forwards;
+            #mouth{
+                position: relative;
+                animation: open_mouth 1s normal forwards;
+
+                // clip-path: inset(10px 20px 30px 40px);
+            }
+
+            #left-eye, #right-eye{
+                position: relative;
+                animation: open_mouth_eyes 1s normal forwards;
+            }
+        }
+        
+    }
+    animation: fade_out_face 1s 4s normal forwards;
+}
+
