@@ -5,22 +5,20 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'JetBrains Mono', monospace;
+  font-size: x-large;
 }
 
 html {
   overflow: hidden;
 }
 
-body {
+html body {
   height: 100vh;
   width: 100vw;
-}
-
-#index-body {
   overflow: overlay;
 }
 
-.main-container {
+html body div.main-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,7 +36,7 @@ body {
   min-height: 100%;
 }
 
-.main-container .navbar {
+html body div.main-container div.navbar {
   z-index: 0;
   height: 10vh;
   width: 100%;
@@ -55,15 +53,15 @@ body {
           justify-content: left;
 }
 
-.main-container .navbar > img {
+html body div.main-container div.navbar > img {
   height: 100%;
 }
 
-.main-container .navbar > p {
+html body div.main-container div.navbar > p {
   background-color: blue;
 }
 
-.main-container .navbar .navigation-items {
+html body div.main-container div.navbar div.navigation-items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,6 +80,68 @@ body {
   margin-left: 15px;
   gap: 15px;
   z-index: -2;
+}
+
+html body div.main-container div.body-container {
+  min-height: 90vh;
+  width: 100%;
+  background-color: aqua;
+}
+
+html body div.main-container div.body-container #load-content-container {
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  width: 100%;
+  height: 100%;
+}
+
+html body div.main-container div.body-container #load-content-container div.txt-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 70%;
+  margin: 20px auto 20px;
+  background-color: white;
+  padding: 25px;
+  line-height: 2em;
+}
+
+html body div.main-container div.body-container #load-content-container div.txt-container p, html body div.main-container div.body-container #load-content-container div.txt-container h1, html body div.main-container div.body-container #load-content-container div.txt-container h2, html body div.main-container div.body-container #load-content-container div.txt-container h3, html body div.main-container div.body-container #load-content-container div.txt-container h4, html body div.main-container div.body-container #load-content-container div.txt-container h5, html body div.main-container div.body-container #load-content-container div.txt-container h6 {
+  padding-bottom: 20px;
+}
+
+html body div.main-container div.body-container #load-content-container div.txt-container img {
+  max-width: 100%;
+}
+
+html body div.main-container div.bottom-container {
+  width: 100vw;
+  height: 40vh;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body div.main-container div.bottom-container p {
+  color: white;
 }
 
 div.dropdown-block {
@@ -206,64 +266,6 @@ div.dropdown-block div.dropdown-content > div:hover {
 
 div.dropdown-block div.dropdown-content > div:hover p {
   color: black;
-}
-
-.body-container {
-  min-height: 90vh;
-  width: 100%;
-  background-color: aqua;
-}
-
-.body-container #load-content-container {
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-  width: 100%;
-  height: 100%;
-}
-
-.txt-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  width: 70%;
-  margin: 20px auto 20px;
-  background-color: blueviolet;
-  padding: 0px 25px;
-  line-height: 2em;
-}
-
-.txt-container p, .txt-container h1, .txt-container h2, .txt-container h3, .txt-container h4, .txt-container h5, .txt-container h6 {
-  padding-bottom: 20px;
-}
-
-.bottom-content-container {
-  width: 100vw;
-  height: 40vh;
-  background-color: black;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.bottom-content-container p {
-  color: white;
 }
 
 /* experimental */
