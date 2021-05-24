@@ -11,7 +11,7 @@
         <script src="./js/script.js?0" defer></script>
 
     </head>
-    <body id="body">
+    <body id="index-body">
 
         <div class="main-container">
 
@@ -30,15 +30,15 @@
                         <div class="dropdown-content">
                             <div><p></p></div>
 
-                            <div>
+                            <div class="dropdown-button" document="text.html">
                                 <p>option 1</p>
                             </div>
 
-                            <div>
+                            <div class="dropdown-button">
                                 <p>option 2</p>
                             </div>
 
-                            <div>
+                            <div class="dropdown-button">
                                 <p>option 3</p>
                             </div>
 
@@ -55,15 +55,15 @@
                         <div class="dropdown-content">
                             <div><p></p></div>
 
-                            <div>
+                            <div class="dropdown-button">
                                 <p>option 1</p>
                             </div>
 
-                            <div>
+                            <div class="dropdown-button">
                                 <p>option 2</p>
                             </div>
 
-                            <div>
+                            <div class="dropdown-button">
                                 <p>option 3</p>
                             </div>
 
@@ -80,15 +80,15 @@
                         <div class="dropdown-content">
                             <div><p></p></div>
 
-                            <div>
+                            <div class="dropdown-button">
                                 <p>option 1</p>
                             </div>
 
-                            <div>
+                            <div class="dropdown-button">
                                 <p>option 2</p>
                             </div>
 
-                            <div>
+                            <div class="dropdown-button">
                                 <p>option 3</p>
                             </div>
 
@@ -115,24 +115,32 @@
             </div>
 
             <div class="body-container">
-                <div class="txt-container">
-                    <br>
-
-                    <h1>Rubrik</h1>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus aliquid atque sapiente doloremque itaque labore sint repellat odio, incidunt quibusdam sed dolor? Animi totam aut maxime veniam atque aliquid consequatur.</p>
-
-                    <p>IT WORKING YES</p>
-
-                    <p>this is very nice!</p>
-
-                    <a href="../../index.html">Go back to start page</a>
-
-                    <br>
-                </div>
+                <div id="load-content-container"></div>
             </div>
 
+            <div class="bottom-content-container">
+                <p>This website is very cool!</p>
+            </div>
+            
 
         </div>
+
+
+
+
+        <script>
+
+            function readThing(thing){
+
+            }
+
+            readThing("./text.html")
+
+            // console.log(fetch('./text.html').then(response => response.text()))
+
+        </script>
+            
+
 
         <!-- <div class="loader">
             <p class="welcome-text">Welcome!</p>

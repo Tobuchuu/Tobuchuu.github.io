@@ -7,9 +7,17 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
   height: 100vh;
   width: 100vw;
+}
+
+#index-body {
+  overflow: overlay;
 }
 
 .main-container {
@@ -26,13 +34,13 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100%;
   width: 100%;
+  min-height: 100%;
 }
 
 .main-container .navbar {
   z-index: 0;
-  height: 10%;
+  height: 10vh;
   width: 100%;
   background-color: red;
   display: -webkit-box;
@@ -201,12 +209,19 @@ div.dropdown-block div.dropdown-content > div:hover p {
 }
 
 .body-container {
-  height: 90%;
+  min-height: 90vh;
   width: 100%;
   background-color: aqua;
 }
 
-.body-container .txt-container {
+.body-container #load-content-container {
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  width: 100%;
+  height: 100%;
+}
+
+.txt-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -218,14 +233,37 @@ div.dropdown-block div.dropdown-content > div:hover p {
       -ms-flex-align: start;
           align-items: flex-start;
   width: 70%;
-  margin: 20px auto 0px;
+  margin: 20px auto 20px;
   background-color: blueviolet;
   padding: 0px 25px;
   line-height: 2em;
 }
 
-.body-container .txt-container p, .body-container .txt-container h1, .body-container .txt-container h2, .body-container .txt-container h3, .body-container .txt-container h4, .body-container .txt-container h5, .body-container .txt-container h6 {
+.txt-container p, .txt-container h1, .txt-container h2, .txt-container h3, .txt-container h4, .txt-container h5, .txt-container h6 {
   padding-bottom: 20px;
+}
+
+.bottom-content-container {
+  width: 100vw;
+  height: 40vh;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.bottom-content-container p {
+  color: white;
 }
 
 /* experimental */
