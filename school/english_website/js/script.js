@@ -13,19 +13,14 @@ document.getElementsByClassName("logo")[0].onclick = function(){
     load_site(null,"load-content-container")
 };
 
-
-
-
 async function load_site(fn, location_id){
     // Checks if allready changing
     if (isChanging){return;}else{isChanging = true;} 
-
     let dest = document.getElementById(location_id);
 
-    
 
-
-    fetch((fn == null) ? "./start.html" : fn)
+    // Code from https://stackoverflow.com/a/53550663
+    fetch((fn == null) ? "start.html" : fn)
     .then(
         function(response) {
             if (response.status !== 200) {
@@ -38,6 +33,7 @@ async function load_site(fn, location_id){
             response.text().then(function(data) {
                 dest.innerHTML = "";
                 dest.insertAdjacentHTML('beforeend',data)
+                history.pushState({}, null, (fn == null) ? "index.html" : `?d=${fn}`);
             });
         }
     )
@@ -46,14 +42,6 @@ async function load_site(fn, location_id){
         console.log('Fetch Error :-S', err);
     }
     );
-
-
-
-
-
-
-
-    
 
     // dest.style.opacity = 0;
     // await sleep(500);
@@ -73,4 +61,6 @@ Array.from(document.getElementsByClassName("dropdown-button")).forEach(i => {
     };
 });
 
-load_site(null,"load-content-container")
+var uri_parameters = new URLSearchParams(window.location.search);
+
+load_site(uri_parameters.get("d"), "load-content-container")
