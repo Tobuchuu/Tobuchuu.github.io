@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap%27');
 
+$theme_main_color_1:red;
+$theme_main_color_2:darken($theme_main_color_1, 20%);
+
+$theme_secound_color_1:gold;
+$theme_secound_color_2:darken($theme_secound_color_1, 20%);
+
 *{
     margin: 0;
     padding: 0;
@@ -12,8 +18,8 @@ html{
     overflow: hidden;
 
     body{
-        height: 100vh;
         width: 100vw;
+        height: 100vh;
         overflow: overlay;
     
         div.main-container{
@@ -24,13 +30,18 @@ html{
         
             width: 100%;
             min-height: 100%;
+
+            div.lantern-holder{
+                width: 100%;
+                height: 0px;
+            }
         
             div.navbar{
                 z-index: 0;
             
                 height: 10vh;
                 width: 100%;
-                background-color: red;
+                background-color: white;
             
                 display: flex;
                 flex-direction: row;
@@ -47,7 +58,7 @@ html{
                 div.navigation-items{
                     display: flex;
                     flex-direction: row;
-                    justify-content:space-evenly;
+                    justify-content: flex-start;
                     align-items: center;
                     width: 100%;
                     height: 100%;
@@ -100,8 +111,9 @@ html{
                 align-items: center;
                 justify-content: center;
             
-                p{
+                p, a:link, a:visited, a:hover, a:active, h1, h2, h3, h4, h5, h6{
                     color: white;
+
                 }
             }
             
@@ -111,49 +123,63 @@ html{
 }
 
 
-
+//#region Custom Dropdown Styling
 div.dropdown-block{
-    $animation_lenght: 0.2s;
-    $animation_lenght_stayopen: 0.2s;
-    $animation_type: ease-in-out;
+    // Size
+    $size_button_height: 50%;
 
-    $size_button_height: 46%;
-    $color_main_button: lighten(purple, 10%);
+    // Color
+    $color_main_button: $theme_main_color_1;
     $color_main_button_hover: lighten($color_main_button, 20%);
     $color_main_button_text: white;
     $color_main_button_hover_text: black;
-    $color_sub_button: lighten($color_main_button, 10%);
+
+    $color_sub_button: $theme_main_color_1;
     $color_sub_button_hover: lighten($color_sub_button, 20%);
     $color_sub_button_text: white;
     $color_sub_button_hover_text: black;
+
+    // Animation
+    $animation_lenght: 0.2s;
+    $animation_lenght_stayopen: 0.2s;
+    $animation_type: ease-in-out;
     $animation_dropdown_open: transform $animation_lenght $animation_type;
     $animation_dropdown_close: transform $animation_lenght $animation_lenght_stayopen $animation_type;
     $animation_border_open: border-radius $animation_lenght $animation_type;
     $animation_border_close: border-radius $animation_lenght $animation_lenght_stayopen $animation_type;
+
+    // Border radius settings
+    $border_radius_size: 15px;
 
     height: $size_button_height;
 
     &:hover{
         /* ANIMATION BORDER RADIUS ON HOVER */
         div.dropdown-header, div.dropdown-content > div{
-            transition: $animation_border_open, $animation_dropdown_open;
+            transition: $animation_border_open,
+                        $animation_dropdown_open,
+                        background-color 0.2s;
+            p{
+                transition: color 0.2s;
+            }
         }
+
+        // This is the first one, so it gets top left/right radius
         div.dropdown-header{
-            border-radius: 10px 10px 0px 0px;
+            border-radius: $border_radius_size $border_radius_size 0px 0px;
         }
         div.dropdown-content{
-            :first-child{
-                border-radius: 10px
-            }
-            :not(:first-child):not(:last-child){
+            // This is all the ones in the middle, they get no radius
+            div{
                 border-radius: 0px;
             }
+            // This is the last one, so it gets bottom left/right radius
             :last-child{
-                border-radius: 0px 0px 10px 10px;
+                border-radius: 0px 0px $border_radius_size $border_radius_size;
             }
         }
-        /* ANIMATION BORDER RADIUS ON HOVER END */
 
+        /* ANIMATION BORDER RADIUS ON HOVER END */
         div.dropdown-header{
             background-color: $color_main_button_hover;
             p{
@@ -163,8 +189,9 @@ div.dropdown-block{
 
         /* ANIMATION ON HOVER */
         div.dropdown-content{
+            // transform: translateY(0);
             & > div{
-                transform: translateY(0) !important;
+                transform: translateY(100%) !important;
             } 
         }
     }
@@ -177,8 +204,15 @@ div.dropdown-block{
         justify-content: center;
         padding: 15px;
 
-        border-radius: 10px;
-        transition: $animation_border_close, $animation_dropdown_close;
+        // Everything gets border radius everywhere when not expanded
+        border-radius: $border_radius_size;
+
+        transition: $animation_border_close,
+                    $animation_dropdown_close,
+                    background-color 0.2s;
+        p{
+            transition: color 0.2s;
+        }
 
         cursor: pointer;
     }
@@ -196,28 +230,14 @@ div.dropdown-block{
 
     div.dropdown-content{
         z-index: -1;
-
         height: 100%;
         position: relative;
         transform: translateY(-100%);
 
-        div:nth-child(1){
-            transform: translateY(-000%)
-        }
-        div:nth-child(2){
-            transform: translateY(-100%)
-        }
-        div:nth-child(3){
-            transform: translateY(-200%)
-        }
-        div:nth-child(4){
-            transform: translateY(-300%)
-        }
-
         & > div{
             height: 100%;
             position: relative;
-            // transition: border-radius 0s 0.2s, $animation_dropdown;
+            transform: translateY( calc( -100% * calc( var(--order) - 1 ) ) );
             background-color: $color_sub_button;
 
             p{
@@ -236,19 +256,22 @@ div.dropdown-block{
         
     }
 }
-
-
-
-
-
-
-
-
-
+//#endregion Custom Dropdown Styling
 
 
 
 /* experimental */ 
+.lantern{
+    position:relative;
+    // top: 0px;
+    // left: 0px;
+    // bottom: -200px;
+    // transition: bottom 1000ms;
+    width: 200px;
+    height: 200px;
+}
+
+
 @keyframes face_grow{
     from{
         width: 200px;

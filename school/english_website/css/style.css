@@ -13,8 +13,8 @@ html {
 }
 
 html body {
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   overflow: overlay;
 }
 
@@ -36,11 +36,16 @@ html body div.main-container {
   min-height: 100%;
 }
 
+html body div.main-container div.lantern-holder {
+  width: 100%;
+  height: 0px;
+}
+
 html body div.main-container div.navbar {
   z-index: 0;
   height: 10vh;
   width: 100%;
-  background-color: red;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -69,9 +74,9 @@ html body div.main-container div.navbar div.navigation-items {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -140,12 +145,12 @@ html body div.main-container div.bottom-container {
           justify-content: center;
 }
 
-html body div.main-container div.bottom-container p {
+html body div.main-container div.bottom-container p, html body div.main-container div.bottom-container a:link, html body div.main-container div.bottom-container a:visited, html body div.main-container div.bottom-container a:hover, html body div.main-container div.bottom-container a:active, html body div.main-container div.bottom-container h1, html body div.main-container div.bottom-container h2, html body div.main-container div.bottom-container h3, html body div.main-container div.bottom-container h4, html body div.main-container div.bottom-container h5, html body div.main-container div.bottom-container h6 {
   color: white;
 }
 
 div.dropdown-block {
-  height: 46%;
+  height: 50%;
   /* Style ALL boxes (including header) */
 }
 
@@ -156,30 +161,31 @@ div.dropdown-block:hover {
 }
 
 div.dropdown-block:hover div.dropdown-header, div.dropdown-block:hover div.dropdown-content > div {
-  -webkit-transition: border-radius 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-  transition: border-radius 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-  transition: border-radius 0.2s ease-in-out, transform 0.2s ease-in-out;
-  transition: border-radius 0.2s ease-in-out, transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  -webkit-transition: border-radius 0.2s ease-in-out, background-color 0.2s, -webkit-transform 0.2s ease-in-out;
+  transition: border-radius 0.2s ease-in-out, background-color 0.2s, -webkit-transform 0.2s ease-in-out;
+  transition: border-radius 0.2s ease-in-out, transform 0.2s ease-in-out, background-color 0.2s;
+  transition: border-radius 0.2s ease-in-out, transform 0.2s ease-in-out, background-color 0.2s, -webkit-transform 0.2s ease-in-out;
+}
+
+div.dropdown-block:hover div.dropdown-header p, div.dropdown-block:hover div.dropdown-content > div p {
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
 }
 
 div.dropdown-block:hover div.dropdown-header {
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 15px 15px 0px 0px;
 }
 
-div.dropdown-block:hover div.dropdown-content :first-child {
-  border-radius: 10px;
-}
-
-div.dropdown-block:hover div.dropdown-content :not(:first-child):not(:last-child) {
+div.dropdown-block:hover div.dropdown-content div {
   border-radius: 0px;
 }
 
 div.dropdown-block:hover div.dropdown-content :last-child {
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 15px 15px;
 }
 
 div.dropdown-block:hover div.dropdown-header {
-  background-color: #ff1aff;
+  background-color: #ff6666;
 }
 
 div.dropdown-block:hover div.dropdown-header p {
@@ -187,8 +193,8 @@ div.dropdown-block:hover div.dropdown-header p {
 }
 
 div.dropdown-block:hover div.dropdown-content > div {
-  -webkit-transform: translateY(0) !important;
-          transform: translateY(0) !important;
+  -webkit-transform: translateY(100%) !important;
+          transform: translateY(100%) !important;
 }
 
 div.dropdown-block div.dropdown-header, div.dropdown-block div.dropdown-content > div {
@@ -204,18 +210,23 @@ div.dropdown-block div.dropdown-header, div.dropdown-block div.dropdown-content 
       -ms-flex-pack: center;
           justify-content: center;
   padding: 15px;
-  border-radius: 10px;
-  -webkit-transition: border-radius 0.2s 0.2s ease-in-out, -webkit-transform 0.2s 0.2s ease-in-out;
-  transition: border-radius 0.2s 0.2s ease-in-out, -webkit-transform 0.2s 0.2s ease-in-out;
-  transition: border-radius 0.2s 0.2s ease-in-out, transform 0.2s 0.2s ease-in-out;
-  transition: border-radius 0.2s 0.2s ease-in-out, transform 0.2s 0.2s ease-in-out, -webkit-transform 0.2s 0.2s ease-in-out;
+  border-radius: 15px;
+  -webkit-transition: border-radius 0.2s 0.2s ease-in-out, background-color 0.2s, -webkit-transform 0.2s 0.2s ease-in-out;
+  transition: border-radius 0.2s 0.2s ease-in-out, background-color 0.2s, -webkit-transform 0.2s 0.2s ease-in-out;
+  transition: border-radius 0.2s 0.2s ease-in-out, transform 0.2s 0.2s ease-in-out, background-color 0.2s;
+  transition: border-radius 0.2s 0.2s ease-in-out, transform 0.2s 0.2s ease-in-out, background-color 0.2s, -webkit-transform 0.2s 0.2s ease-in-out;
   cursor: pointer;
+}
+
+div.dropdown-block div.dropdown-header p, div.dropdown-block div.dropdown-content > div p {
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
 }
 
 div.dropdown-block div.dropdown-header {
   height: 100%;
   z-index: 1;
-  background-color: #b300b3;
+  background-color: red;
 }
 
 div.dropdown-block div.dropdown-header p {
@@ -230,30 +241,12 @@ div.dropdown-block div.dropdown-content {
           transform: translateY(-100%);
 }
 
-div.dropdown-block div.dropdown-content div:nth-child(1) {
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%);
-}
-
-div.dropdown-block div.dropdown-content div:nth-child(2) {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-}
-
-div.dropdown-block div.dropdown-content div:nth-child(3) {
-  -webkit-transform: translateY(-200%);
-          transform: translateY(-200%);
-}
-
-div.dropdown-block div.dropdown-content div:nth-child(4) {
-  -webkit-transform: translateY(-300%);
-          transform: translateY(-300%);
-}
-
 div.dropdown-block div.dropdown-content > div {
   height: 100%;
   position: relative;
-  background-color: #e600e6;
+  -webkit-transform: translateY(calc( -100% * calc( var(--order) - 1 )));
+          transform: translateY(calc( -100% * calc( var(--order) - 1 )));
+  background-color: red;
 }
 
 div.dropdown-block div.dropdown-content > div p {
@@ -261,7 +254,7 @@ div.dropdown-block div.dropdown-content > div p {
 }
 
 div.dropdown-block div.dropdown-content > div:hover {
-  background-color: #ff4dff;
+  background-color: #ff6666;
 }
 
 div.dropdown-block div.dropdown-content > div:hover p {
@@ -269,6 +262,12 @@ div.dropdown-block div.dropdown-content > div:hover p {
 }
 
 /* experimental */
+.lantern {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
 @-webkit-keyframes face_grow {
   from {
     width: 200px;
@@ -279,6 +278,7 @@ div.dropdown-block div.dropdown-content > div:hover p {
     height: 450vh;
   }
 }
+
 @keyframes face_grow {
   from {
     width: 200px;
