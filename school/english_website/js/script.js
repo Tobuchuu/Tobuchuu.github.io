@@ -101,8 +101,8 @@ async function load_site(fn, location_id){
                 "document": "./content/sanna/food.html"
             },
             {
-                "label": "option 3",
-                "document": null
+                "label": "Places to visit",
+                "document": "./content/isak/places_to_visit.html"
             },
         ],
         'dest': document.getElementsByClassName("navigation-items")[0]

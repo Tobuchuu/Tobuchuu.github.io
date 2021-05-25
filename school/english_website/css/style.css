@@ -5,7 +5,6 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'JetBrains Mono', monospace;
-  font-size: x-large;
 }
 
 html {
@@ -16,6 +15,7 @@ html body {
   width: 100vw;
   height: 100vh;
   overflow: overlay;
+  font-size: 120%;
 }
 
 html body div.main-container {
@@ -118,8 +118,13 @@ html body div.main-container div.body-container #load-content-container div.txt-
   line-height: 2em;
 }
 
-html body div.main-container div.body-container #load-content-container div.txt-container p, html body div.main-container div.body-container #load-content-container div.txt-container h1, html body div.main-container div.body-container #load-content-container div.txt-container h2, html body div.main-container div.body-container #load-content-container div.txt-container h3, html body div.main-container div.body-container #load-content-container div.txt-container h4, html body div.main-container div.body-container #load-content-container div.txt-container h5, html body div.main-container div.body-container #load-content-container div.txt-container h6 {
+html body div.main-container div.body-container #load-content-container div.txt-container p, html body div.main-container div.body-container #load-content-container div.txt-container h1, html body div.main-container div.body-container #load-content-container div.txt-container h2, html body div.main-container div.body-container #load-content-container div.txt-container h3, html body div.main-container div.body-container #load-content-container div.txt-container h4, html body div.main-container div.body-container #load-content-container div.txt-container h5, html body div.main-container div.body-container #load-content-container div.txt-container h6, html body div.main-container div.body-container #load-content-container div.txt-container ol, html body div.main-container div.body-container #load-content-container div.txt-container ul {
   padding-bottom: 20px;
+}
+
+html body div.main-container div.body-container #load-content-container div.txt-container ol, html body div.main-container div.body-container #load-content-container div.txt-container ul {
+  -webkit-padding-start: 40px;
+          padding-inline-start: 40px;
 }
 
 html body div.main-container div.body-container #load-content-container div.txt-container img {

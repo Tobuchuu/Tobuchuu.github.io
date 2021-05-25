@@ -11,7 +11,6 @@ $theme_secound_color_2:darken($theme_secound_color_1, 20%);
     padding: 0;
     box-sizing: border-box;
     font-family: 'JetBrains Mono', monospace;
-    font-size: x-large;
 }
 
 html{
@@ -21,6 +20,8 @@ html{
         width: 100vw;
         height: 100vh;
         overflow: overlay;
+
+        font-size: 120%;
     
         div.main-container{
             display: flex;
@@ -90,8 +91,11 @@ html{
                         padding: 25px;
                         line-height: 2em;
                     
-                        p, h1, h2, h3, h4, h5, h6{
+                        p, h1, h2, h3, h4, h5, h6, ol, ul{
                             padding-bottom: 20px;
+                        }
+                        ol, ul{
+                            padding-inline-start: 40px;
                         }
 
                         img{
@@ -116,12 +120,9 @@ html{
 
                 }
             }
-            
         }
-    
     }
 }
-
 
 //#region Custom Dropdown Styling
 div.dropdown-block{
