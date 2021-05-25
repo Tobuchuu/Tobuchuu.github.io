@@ -58,7 +58,7 @@ html body div.main-container div.navbar {
           justify-content: left;
 }
 
-html body div.main-container div.navbar > img {
+html body div.main-container div.navbar .logo {
   height: 100%;
 }
 
@@ -90,7 +90,7 @@ html body div.main-container div.navbar div.navigation-items {
 html body div.main-container div.body-container {
   min-height: 90vh;
   width: 100%;
-  background-color: aqua;
+  background-image: url(../img/bgr.jpg);
 }
 
 html body div.main-container div.body-container #load-content-container {
@@ -112,10 +112,11 @@ html body div.main-container div.body-container #load-content-container div.txt-
       -ms-flex-align: start;
           align-items: flex-start;
   width: 70%;
-  margin: 20px auto 20px;
+  margin: 40px auto 40px;
   background-color: white;
   padding: 25px;
   line-height: 2em;
+  border-radius: 10px;
 }
 
 html body div.main-container div.body-container #load-content-container div.txt-container p, html body div.main-container div.body-container #load-content-container div.txt-container h1, html body div.main-container div.body-container #load-content-container div.txt-container h2, html body div.main-container div.body-container #load-content-container div.txt-container h3, html body div.main-container div.body-container #load-content-container div.txt-container h4, html body div.main-container div.body-container #load-content-container div.txt-container h5, html body div.main-container div.body-container #load-content-container div.txt-container h6, html body div.main-container div.body-container #load-content-container div.txt-container ol, html body div.main-container div.body-container #load-content-container div.txt-container ul {
@@ -152,6 +153,39 @@ html body div.main-container div.bottom-container {
 
 html body div.main-container div.bottom-container p, html body div.main-container div.bottom-container a:link, html body div.main-container div.bottom-container a:visited, html body div.main-container div.bottom-container a:hover, html body div.main-container div.bottom-container a:active, html body div.main-container div.bottom-container h1, html body div.main-container div.bottom-container h2, html body div.main-container div.bottom-container h3, html body div.main-container div.bottom-container h4, html body div.main-container div.bottom-container h5, html body div.main-container div.bottom-container h6 {
   color: white;
+}
+
+html body div.main-container div.bottom-container p.easter-egg-1 {
+  padding-top: 3rem;
+  color: black;
+}
+
+html body img.easter-egg-1 {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  -webkit-animation: 3s ease-in-out fadein_easter_egg_1 forwards;
+          animation: 3s ease-in-out fadein_easter_egg_1 forwards;
+}
+
+@-webkit-keyframes fadein_easter_egg_1 {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadein_easter_egg_1 {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
 }
 
 div.dropdown-block {

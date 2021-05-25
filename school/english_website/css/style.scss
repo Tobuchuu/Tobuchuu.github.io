@@ -48,8 +48,12 @@ html{
                 flex-direction: row;
                 justify-content: left;
             
-                & > img{
+                .logo{
                     height: 100%;
+                    // min-width: 400px;
+                    // display: flex;
+                    // justify-content: center;
+                    // align-items: center;
                 }
             
                 & > p{
@@ -74,7 +78,20 @@ html{
             div.body-container{
                 min-height: 90vh;
                 width: 100%;
-                background-color: aqua; 
+                background-image: url(../img/bgr.jpg);
+                // Code from https://stackoverflow.com/a/44568832
+                // background:
+                // linear-gradient(
+                //     to bottom, 
+                //     rgba(0,0,0,0) 90%,
+                //     rgba(0,0,0,1)
+                // ),
+                // // linear-gradient(
+                // //     to top, 
+                // //     rgba(0,0,0,0) 98%,
+                // //     rgba(255,255,255,1)
+                // // ),
+                // url('../img/bgr.jpg');
                 
                 #load-content-container{
                     transition: opacity 0.5s;
@@ -86,10 +103,11 @@ html{
                         flex-direction: column;
                         align-items: flex-start;
                         width: 70%;
-                        margin: 20px auto 20px;
+                        margin: 40px auto 40px;
                         background-color: white;
                         padding: 25px;
                         line-height: 2em;
+                        border-radius: 10px;
                     
                         p, h1, h2, h3, h4, h5, h6, ol, ul{
                             padding-bottom: 20px;
@@ -117,9 +135,32 @@ html{
             
                 p, a:link, a:visited, a:hover, a:active, h1, h2, h3, h4, h5, h6{
                     color: white;
+                }
 
+                p.easter-egg-1{
+                    padding-top: 3rem;
+                    color: black;
                 }
             }
+        }
+
+
+        img.easter-egg-1{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+
+            @keyframes fadein_easter_egg_1 {
+                from{
+                    opacity: 0%;
+                }
+                to{
+                    opacity: 100%;
+                }
+            }
+            animation: 3s ease-in-out fadein_easter_egg_1 forwards;
         }
     }
 }

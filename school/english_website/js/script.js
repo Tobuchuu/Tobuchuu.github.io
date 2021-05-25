@@ -56,12 +56,17 @@ function create_dropdown_block(input){
     return div_dropdown_block;
 };
 
-async function load_site(fn, location_id){
-    if(loaded_page == fn){console.log("Same page, ignoring request");return;}
-    else{loaded_page = fn;}
-
+async function load_site(fn, location_id, ignore_same_page=false){
+    if(loaded_page == fn && !ignore_same_page){
+        console.log("Same page, ignoring request");
+        return;
+    }
+    else{
+        loaded_page = fn;
+    }
+    
     let dest = document.getElementById(location_id);
-
+    
     // Code from https://stackoverflow.com/a/53550663
     fetch((fn == null) ? "start.html" : fn)
     .then(
@@ -73,9 +78,11 @@ async function load_site(fn, location_id){
 
             // Examine the text in the response
             response.text().then(function(data){
-                dest.innerHTML = "";
-                dest.insertAdjacentHTML('beforeend',data)
-                history.pushState({}, null, (fn == null) ? window.location.pathname : `?d=${fn}`);
+                if (location_id != null){
+                    dest.innerHTML = "";
+                    dest.insertAdjacentHTML('beforeend',data)
+                    history.pushState({}, null, (fn == null) ? window.location.pathname : `?d=${fn}`);
+                }
             });
         }
     )
@@ -99,20 +106,31 @@ async function load_site(fn, location_id){
             {
                 "label": "Food",
                 "document": "./content/sanna/food.html"
-            },
+            }
+        ],
+        'dest': document.getElementsByClassName("navigation-items")[0]
+    },
+    {
+        "header": "Sights",
+        "content": [
             {
                 "label": "Places to visit",
                 "document": "./content/isak/places_to_visit.html"
-            },
+            }
         ],
         'dest': document.getElementsByClassName("navigation-items")[0]
     }
 ]
 .forEach(i => {
+    /* Load everything at once */
+    // i['content'].forEach(ii =>{
+    //     load_site(ii['document'], null, true)
+    // });
+
     create_dropdown_block(i);
 });
 
-load_site(uri_parameters.get("d"), "load-content-container")
+load_site(uri_parameters.get("d"), "load-content-container", true)
 
 //#endregion INIT
 //#region EVENTS
@@ -120,6 +138,14 @@ load_site(uri_parameters.get("d"), "load-content-container")
 // Returns to main page after user clicks the logo at top left
 document.getElementsByClassName("logo")[0].onclick = function(){
     load_site(null,"load-content-container")
+};
+
+// Easter egg 1
+document.querySelectorAll('p.easter-egg-1')[0].onclick = async function(){
+    let a = document.createElement("img")
+    a.src = "https://tinyurl.com/2cvt85n8";
+    a.classList.add("easter-egg-1")
+    document.body.appendChild(a)
 };
 
 /* Sets onclick events for all drop down buttons */
