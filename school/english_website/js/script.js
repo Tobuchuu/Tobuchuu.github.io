@@ -6,7 +6,11 @@ function sleep(ms){
 //#endregion Libraries/Code from somewhere else
 //#region Global variables
 var uri_parameters = new URLSearchParams(window.location.search);
-var loaded_page = "";
+
+var loaded_pages_cache = {};
+var load_document_default_file_name = "default.html";
+var load_document_default_dest = document.getElementById('loader-here');
+
 //#endregion Global variables
 //#region Functions
 
@@ -56,41 +60,91 @@ function create_dropdown_block(input){
     return div_dropdown_block;
 };
 
-async function load_site(fn, location_id, ignore_same_page=false){
-    if(loaded_page == fn && !ignore_same_page){
-        console.log("Same page, ignoring request");
-        return;
-    }
-    else{
-        loaded_page = fn;
-    }
-    
-    let dest = document.getElementById(location_id);
-    
-    // Code from https://stackoverflow.com/a/53550663
-    fetch((fn == null) ? "start.html" : fn)
-    .then(
-        function(response){
-            if (response.status !== 200) {
-                console.log(`Looks like there was a problem. Status Code: ${response.status}`);
-                return;
-            }
+function after_load_document(){
+    Array.from(document.getElementsByClassName("txt-container")[0].getElementsByTagName("img")).forEach(i => {
+        if (i.getAttribute("source") != null){
+            i.onclick = function(){
+                window.open(i.getAttribute("source"));
+            };
+            i.title = "Click the image to go to the source";
+        };
+    });
 
-            // Examine the text in the response
-            response.text().then(function(data){
-                if (location_id != null){
-                    dest.innerHTML = "";
-                    dest.insertAdjacentHTML('beforeend',data)
-                    history.pushState({}, null, (fn == null) ? window.location.pathname : `?d=${fn}`);
-                }
-            });
+    // Array.from(document.getElementsByClassName("txt-container")[0].getElementsByClassName("ancher-me")).forEach(i => {
+    //     if (i.id == ""){i.id = i.innerHTML;}
+
+    //     let ancher = document.createElement("a");
+    //     ancher.text = "¶";
+    //     ancher.classList.add("ancher");
+    //     ancher.href = `#${i.id}`;
+    //     i.appendChild(ancher);
+    // });
+}
+
+
+// If `fn` is null, then it will try to load a default template ("default.html")
+// If `ignore_same_page` is true, then it will load the page, even if the last reported loaded page is the same as the current request.
+async function load_document(fn, dest, ignore_same_page=false){
+    if (fn == load_document_default_file_name){fn = null;}
+    if (dest == undefined || dest == null){dest = load_document_default_dest;}
+
+    let replacement_html = null;
+
+    // Step 1: Check if it should load in the first place.
+    if (dest.getAttribute("loaded") == `${fn}`){
+
+        if (!ignore_same_page){
+            console.log("Same page, ignoring request");
+            return;
         }
-    )
-    .catch(
-        function(err){
-            console.log('Fetch Error :-S', err);
+        console.log("Was same page, but ignore_same_page is true")
+    }
+
+    // Step 2: Check cache.
+    if (`${fn}` in loaded_pages_cache){
+        
+        console.log("Using cache!");
+        replacement_html = loaded_pages_cache[`${fn}`];
+    }
+    
+    // Step 3: Make a new request
+    if (replacement_html == null){
+
+        let response = await fetch((fn == null) ? load_document_default_file_name : fn)
+
+        if (response.status === 200){
+            let data = await response.text()
+            replacement_html = data;
         }
-    );
+        
+    }
+
+    // Final step: Switch out data
+    if (replacement_html != null){
+        // Replace content
+        dest.innerHTML = replacement_html;
+
+        // Fix classes and "loaded" property
+        if (dest.getAttribute("loaded") != null){
+            dest.classList.remove(`document-${dest.getAttribute("loaded")}`)
+        }
+        dest.classList.add(`document-${fn}`)
+        dest.setAttribute("loaded", `${fn}`);
+
+        // Save to cache
+        loaded_pages_cache[`${fn}`] = replacement_html;
+
+        // Update URL
+        history.pushState({}, null, (fn == null) ? window.location.pathname : `?d=${fn}`);
+
+        Array.from(dest.getElementsByClassName("run-after-load")).forEach(i => {
+            eval(i.innerHTML);
+        });
+
+        return 0;
+    }
+    
+    return -1;
 };
 
 //#endregion Functions and events
@@ -100,13 +154,17 @@ async function load_site(fn, location_id, ignore_same_page=false){
         "header": "Culture",
         "content": [
             {
+                "label": "Food",
+                "document": "./content/sanna/food.html"
+            },
+            {
+                "label": "Religion",
+                "document": "./content/sanna/religion.html"
+            },
+            {
                 "label": "option 1",
                 "document": "text.html"
             },
-            {
-                "label": "Food",
-                "document": "./content/sanna/food.html"
-            }
         ],
         'dest': document.getElementsByClassName("navigation-items")[0]
     },
@@ -124,34 +182,34 @@ async function load_site(fn, location_id, ignore_same_page=false){
 .forEach(i => {
     /* Load everything at once */
     // i['content'].forEach(ii =>{
-    //     load_site(ii['document'], null, true)
+    //     load_document(ii['document'], null, true)
     // });
 
     create_dropdown_block(i);
 });
 
-load_site(uri_parameters.get("d"), "load-content-container", true)
+load_document(uri_parameters.get("d"), null, true)
 
 //#endregion INIT
 //#region EVENTS
 
 // Returns to main page after user clicks the logo at top left
 document.getElementsByClassName("logo")[0].onclick = function(){
-    load_site(null,"load-content-container")
+    load_document(null);
 };
 
 // Easter egg 1
 document.querySelectorAll('p.easter-egg-1')[0].onclick = async function(){
-    let a = document.createElement("img")
+    let a = document.createElement("img");
     a.src = "https://tinyurl.com/2cvt85n8";
-    a.classList.add("easter-egg-1")
-    document.body.appendChild(a)
+    a.classList.add("easter-egg-1");
+    document.body.appendChild(a);
 };
 
 /* Sets onclick events for all drop down buttons */
 Array.from(document.getElementsByClassName("dropdown-button")).forEach(i => {
     i.onclick = function(){
-        load_site(i.getAttribute("document"), "load-content-container")
+        load_document(i.getAttribute("document"))
     };
 });
 

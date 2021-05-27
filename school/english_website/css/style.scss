@@ -93,11 +93,26 @@ html{
                 // // ),
                 // url('../img/bgr.jpg');
                 
-                #load-content-container{
+                #loader-here{
                     transition: opacity 0.5s;
                     width: 100%;
                     height: 100%;
-    
+
+                    &.document-\.\/content\/isak\/places_to_visit\.html{
+                        div.txt-container ul li div{
+                            grid-template-columns: 50% 5% auto; /* text|padding|image */
+                        }
+                    }
+
+                    &.document-\.\/content\/sanna\/religion\.html{
+                        div.txt-container ul li div{
+                            grid-template-columns: 70% 10% auto; /* text|padding|image */
+                        }
+                        h3{
+                            display: inline;
+                        }
+                    }
+
                     div.txt-container{
                         display: flex;
                         flex-direction: column;
@@ -109,14 +124,28 @@ html{
                         line-height: 2em;
                         border-radius: 10px;
                     
+                        a, a:link, a:visited, a:hover, a:active{
+                            color: inherit;
+
+                        }
+                        .ancher{
+                            padding-left: 1ch;
+                            text-decoration: none;
+                        }
                         p, h1, h2, h3, h4, h5, h6, ol, ul{
                             padding-bottom: 20px;
                         }
                         ol, ul{
                             padding-inline-start: 40px;
-                        }
 
-                        img{
+                            li div{
+                                display: grid;
+                                grid-template-columns: 70% 10% auto; /* text|padding|image */
+                                grid-template-rows: min-content;
+                            }
+                        }
+                        img, iframe{
+                            width: 100%;
                             max-width: 100%;
                         }
                     }
