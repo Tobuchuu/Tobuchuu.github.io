@@ -317,10 +317,7 @@ div.dropdown-block{
     }
 }
 //#endregion Custom Dropdown Styling
-
-
-
-/* experimental */ 
+//#region experimental
 .lantern{
     position:relative;
     // top: 0px;
@@ -406,4 +403,4 @@ div.dropdown-block{
     }
     animation: fade_out_face 1s 4s normal forwards;
 }
-
+//#endregion experimental
