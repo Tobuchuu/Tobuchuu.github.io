@@ -100,20 +100,16 @@ html body div.main-container div.body-container #loader-here {
   height: 100%;
 }
 
-html body div.main-container div.body-container #loader-here.document-\.\/content\/isak\/places_to_visit\.html div.txt-container ul li div {
-  -ms-grid-columns: 50% 5% auto;
-      grid-template-columns: 50% 5% auto;
+html body div.main-container div.body-container #loader-here.document-\.\/content\/isak\/places_to_visit\.html div.txt-container ol li div {
+  -ms-grid-columns: 55% 1% auto;
+      grid-template-columns: 55% 1% auto;
   /* text|padding|image */
 }
 
 html body div.main-container div.body-container #loader-here.document-\.\/content\/sanna\/religion\.html div.txt-container ul li div {
-  -ms-grid-columns: 70% 10% auto;
-      grid-template-columns: 70% 10% auto;
+  -ms-grid-columns: 70% 5% auto;
+      grid-template-columns: 70% 5% auto;
   /* text|padding|image */
-}
-
-html body div.main-container div.body-container #loader-here.document-\.\/content\/sanna\/religion\.html h3 {
-  display: inline;
 }
 
 html body div.main-container div.body-container #loader-here div.txt-container {
@@ -156,9 +152,6 @@ html body div.main-container div.body-container #loader-here div.txt-container o
 html body div.main-container div.body-container #loader-here div.txt-container ol li div, html body div.main-container div.body-container #loader-here div.txt-container ul li div {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 70% 10% auto;
-      grid-template-columns: 70% 10% auto;
-  /* text|padding|image */
   -ms-grid-rows: min-content;
       grid-template-rows: -webkit-min-content;
       grid-template-rows: min-content;

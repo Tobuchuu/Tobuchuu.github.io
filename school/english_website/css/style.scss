@@ -20,7 +20,6 @@ html{
         width: 100vw;
         height: 100vh;
         overflow: overlay;
-
         font-size: 120%;
     
         div.main-container{
@@ -28,7 +27,6 @@ html{
             justify-content: center;
             align-items: center;
             flex-direction: column;
-        
             width: 100%;
             min-height: 100%;
 
@@ -39,11 +37,9 @@ html{
         
             div.navbar{
                 z-index: 0;
-            
                 height: 10vh;
                 width: 100%;
                 background-color: white;
-            
                 display: flex;
                 flex-direction: row;
                 justify-content: left;
@@ -79,6 +75,7 @@ html{
                 min-height: 90vh;
                 width: 100%;
                 background-image: url(../img/bgr.jpg);
+
                 // Code from https://stackoverflow.com/a/44568832
                 // background:
                 // linear-gradient(
@@ -99,17 +96,13 @@ html{
                     height: 100%;
 
                     &.document-\.\/content\/isak\/places_to_visit\.html{
-                        div.txt-container ul li div{
-                            grid-template-columns: 50% 5% auto; /* text|padding|image */
+                        div.txt-container ol li div{
+                            grid-template-columns: 55% 1% auto; /* text|padding|image */
                         }
                     }
-
                     &.document-\.\/content\/sanna\/religion\.html{
                         div.txt-container ul li div{
-                            grid-template-columns: 70% 10% auto; /* text|padding|image */
-                        }
-                        h3{
-                            display: inline;
+                            grid-template-columns: 70% 5% auto; /* text|padding|image */
                         }
                     }
 
@@ -126,7 +119,6 @@ html{
                     
                         a, a:link, a:visited, a:hover, a:active{
                             color: inherit;
-
                         }
                         .ancher{
                             padding-left: 1ch;
@@ -140,7 +132,6 @@ html{
 
                             li div{
                                 display: grid;
-                                grid-template-columns: 70% 10% auto; /* text|padding|image */
                                 grid-template-rows: min-content;
                             }
                         }
@@ -156,7 +147,6 @@ html{
                 width: 100vw;
                 height: 40vh;
                 background-color: black;
-            
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -172,7 +162,6 @@ html{
                 }
             }
         }
-
 
         img.easter-egg-1{
             position: fixed;
