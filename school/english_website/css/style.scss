@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap%27');
 
-$theme_main_color_1:red;
+$theme_main_color_1:green;
 $theme_main_color_2:darken($theme_main_color_1, 20%);
 
-$theme_secound_color_1:gold;
+$theme_secound_color_1:white;
 $theme_secound_color_2:darken($theme_secound_color_1, 20%);
+
+/* Code from https://stackoverflow.com/a/6900392 */
+@mixin unselectable{
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
 
 *{
     margin: 0;
@@ -20,7 +28,6 @@ html{
         width: 100vw;
         height: 100vh;
         overflow: overlay;
-
         font-size: 120%;
     
         div.main-container{
@@ -28,7 +35,6 @@ html{
             justify-content: center;
             align-items: center;
             flex-direction: column;
-        
             width: 100%;
             min-height: 100%;
 
@@ -39,21 +45,26 @@ html{
         
             div.navbar{
                 z-index: 0;
-            
                 height: 10vh;
                 width: 100%;
                 background-color: white;
-            
                 display: flex;
                 flex-direction: row;
                 justify-content: left;
             
                 .logo{
-                    height: 100%;
+                    height: 80px;
+                    width: 100px;
+                    padding-top: 10px;
+                    margin-left: 20px;
                     // min-width: 400px;
                     // display: flex;
                     // justify-content: center;
                     // align-items: center;
+                }
+
+                .bamboo{
+                    width: 100px;
                 }
             
                 & > p{
@@ -68,8 +79,8 @@ html{
                     width: 100%;
                     height: 100%;
             
-                    margin-left: 15px;
-                    gap: 15px;
+                    margin-left: 30px;
+                    gap: 40px;
                 
                     z-index: -2;
                 }
@@ -78,7 +89,12 @@ html{
             div.body-container{
                 min-height: 90vh;
                 width: 100%;
-                background-image: url(../img/bgr.jpg);
+                // background-image: url(../img/bgr.jpg);
+                background-image: url(../img/background_1980x1080.jpg);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+
+
                 // Code from https://stackoverflow.com/a/44568832
                 // background:
                 // linear-gradient(
@@ -93,30 +109,72 @@ html{
                 // // ),
                 // url('../img/bgr.jpg');
                 
-                #load-content-container{
+                #loader-here{
                     transition: opacity 0.5s;
                     width: 100%;
                     height: 100%;
-    
+                    
+
+                    &.document-\.\/content\/isak\/places_to_visit\.html{
+                        div.txt-container ol li div{
+                            grid-template-columns: 55% 1% auto; /* text|padding|image */
+                        }
+                    }
+                    &.document-\.\/content\/sanna\/religion\.html{
+                        div.txt-container ul li div{
+                            grid-template-columns: 70% 5% auto; /* text|padding|image */
+                        }
+                    }
+                    &.document-\.\/content\/aleksandar\/festivals\.html{
+                        div.txt-container img{
+                            width: 50% !important;
+                            margin: auto;
+                            padding: 2ch;
+                        }
+                    }
+
                     div.txt-container{
                         display: flex;
                         flex-direction: column;
                         align-items: flex-start;
                         width: 70%;
                         margin: 40px auto 40px;
-                        background-color: white;
+                        background-color: rgba(255,255,255,0.7);
                         padding: 25px;
                         line-height: 2em;
                         border-radius: 10px;
+
+                        span.arrow{
+                            font-size: 170%;
+                        }
+                        span.special-link{
+                            cursor: pointer;
+                            text-decoration: underline;
+                            &:hover{
+                                color: blue;
+                            }
+                        }
                     
+                        a, a:link, a:visited, a:hover, a:active{
+                            color: inherit;
+                        }
+                        .ancher{
+                            padding-left: 1ch;
+                            text-decoration: none;
+                        }
                         p, h1, h2, h3, h4, h5, h6, ol, ul{
                             padding-bottom: 20px;
                         }
                         ol, ul{
                             padding-inline-start: 40px;
-                        }
 
-                        img{
+                            li div{
+                                display: grid;
+                                grid-template-rows: min-content;
+                            }
+                        }
+                        img, iframe{
+                            width: 100%;
                             max-width: 100%;
                         }
                     }
@@ -125,25 +183,48 @@ html{
     
             div.bottom-container{
                 width: 100vw;
-                height: 40vh;
+                min-height: 40vh;
                 background-color: black;
-            
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                padding: 30px;
+
+                div{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    width: 80%;
+
+                    div{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+
+                        h2{
+                            font-size: 30px;
+                            color: $theme_main_color_1;
+                        }
+
+                        & > *{
+                            margin-bottom: 25px;
+                            font-size: 80%;
+                        }
+                    }
+                    
+                }
             
                 p, a:link, a:visited, a:hover, a:active, h1, h2, h3, h4, h5, h6{
                     color: white;
                 }
 
                 p.easter-egg-1{
-                    padding-top: 3rem;
+                    // padding-top: 3rem;
                     color: black;
                 }
             }
         }
-
 
         img.easter-egg-1{
             position: fixed;
@@ -165,6 +246,32 @@ html{
     }
 }
 
+//#region ScrollBar
+// Code from https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp
+/* width */
+::-webkit-scrollbar{
+    width: 10px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $theme_main_color_1; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: darken($theme_main_color_1, 5%); 
+}
+
+//#endregion ScrollBar
 //#region Custom Dropdown Styling
 div.dropdown-block{
     // Size
@@ -245,6 +352,7 @@ div.dropdown-block{
         align-items: center;
         justify-content: center;
         padding: 15px;
+        cursor: pointer;
 
         // Everything gets border radius everywhere when not expanded
         border-radius: $border_radius_size;
@@ -253,10 +361,11 @@ div.dropdown-block{
                     $animation_dropdown_close,
                     background-color 0.2s;
         p{
+            @include unselectable;
             transition: color 0.2s;
+            
+            transition: transform 0.1s !important;
         }
-
-        cursor: pointer;
     }
 
     div.dropdown-header{
@@ -282,6 +391,14 @@ div.dropdown-block{
             transform: translateY( calc( -100% * calc( var(--order) - 1 ) ) );
             background-color: $color_sub_button;
 
+
+            &:active{
+                p{
+                    transform: scale(0.9,0.9) !important;
+                }
+                
+            }
+
             p{
                 color: $color_sub_button_text;
             }
@@ -291,6 +408,9 @@ div.dropdown-block{
                 p{
                     color: $color_sub_button_hover_text;
                 }
+                &:active{
+                    background-color: lighten($color_sub_button_hover, 10%);
+                }
             }
 
 
@@ -299,10 +419,7 @@ div.dropdown-block{
     }
 }
 //#endregion Custom Dropdown Styling
-
-
-
-/* experimental */ 
+//#region experimental
 .lantern{
     position:relative;
     // top: 0px;
@@ -388,4 +505,4 @@ div.dropdown-block{
     }
     animation: fade_out_face 1s 4s normal forwards;
 }
-
+//#endregion experimental
