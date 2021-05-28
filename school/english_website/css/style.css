@@ -132,6 +132,18 @@ html body div.main-container div.body-container #loader-here div.txt-container {
   border-radius: 10px;
 }
 
+html body div.main-container div.body-container #loader-here div.txt-container span.arrow {
+  font-size: 170%;
+}
+
+html body div.main-container div.body-container #loader-here div.txt-container span.special-link {
+  text-decoration: underline;
+}
+
+html body div.main-container div.body-container #loader-here div.txt-container span.special-link:hover {
+  color: blue;
+}
+
 html body div.main-container div.body-container #loader-here div.txt-container a, html body div.main-container div.body-container #loader-here div.txt-container a:link, html body div.main-container div.body-container #loader-here div.txt-container a:visited, html body div.main-container div.body-container #loader-here div.txt-container a:hover, html body div.main-container div.body-container #loader-here div.txt-container a:active {
   color: inherit;
 }

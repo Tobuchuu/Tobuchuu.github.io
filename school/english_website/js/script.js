@@ -169,6 +169,16 @@ async function load_document(fn, dest, ignore_same_page=false){
         'dest': document.getElementsByClassName("navigation-items")[0]
     },
     {
+        "header": "Traditions",
+        "content": [
+            {
+                "label": "Festivals",
+                "document": "./content/aleksandar/festivals.html"
+            }
+        ],
+        'dest': document.getElementsByClassName("navigation-items")[0]
+    },
+    {
         "header": "Sights",
         "content": [
             {

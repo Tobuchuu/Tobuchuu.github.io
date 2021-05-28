@@ -124,6 +124,16 @@ html{
                         padding: 25px;
                         line-height: 2em;
                         border-radius: 10px;
+
+                        span.arrow{
+                            font-size: 170%;
+                        }
+                        span.special-link{
+                            text-decoration: underline;
+                            &:hover{
+                                color: blue;
+                            }
+                        }
                     
                         a, a:link, a:visited, a:hover, a:active{
                             color: inherit;
