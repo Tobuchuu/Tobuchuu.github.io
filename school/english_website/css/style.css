@@ -60,8 +60,9 @@ html body div.main-container div.navbar {
 }
 
 html body div.main-container div.navbar .logo {
-  height: 100px;
+  height: 80px;
   width: 100px;
+  padding-top: 10px;
   margin-left: 20px;
 }
 
@@ -192,7 +193,7 @@ html body div.main-container div.body-container #loader-here div.txt-container i
 
 html body div.main-container div.bottom-container {
   width: 100vw;
-  height: 40vh;
+  min-height: 40vh;
   background-color: black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -207,23 +208,24 @@ html body div.main-container div.bottom-container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 30px;
 }
 
-html body div.main-container div.bottom-container div.grid-container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
-  margin-top: 30px;
-  gap: 0px 100px;
+html body div.main-container div.bottom-container div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 80%;
 }
 
-html body div.main-container div.bottom-container div.grid-container div.grid-item:first-child, html body div.main-container div.bottom-container div.grid-container div.grid-item:nth-child(2), html body div.main-container div.bottom-container div.grid-container div.grid-item:nth-child(3) {
-  font-size: 30px;
-  color: red;
-}
-
-html body div.main-container div.bottom-container div.grid-container div.grid-item {
+html body div.main-container div.bottom-container div div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -231,9 +233,19 @@ html body div.main-container div.bottom-container div.grid-container div.grid-it
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+html body div.main-container div.bottom-container div div h2 {
+  font-size: 30px;
+  color: green;
+}
+
+html body div.main-container div.bottom-container div div > * {
   margin-bottom: 25px;
-  color: white;
-  font-size: medium;
+  font-size: 80%;
 }
 
 html body div.main-container div.bottom-container p, html body div.main-container div.bottom-container a:link, html body div.main-container div.bottom-container a:visited, html body div.main-container div.bottom-container a:hover, html body div.main-container div.bottom-container a:active, html body div.main-container div.bottom-container h1, html body div.main-container div.bottom-container h2, html body div.main-container div.bottom-container h3, html body div.main-container div.bottom-container h4, html body div.main-container div.bottom-container h5, html body div.main-container div.bottom-container h6 {
@@ -279,19 +291,19 @@ html body img.easter-egg-1 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #990000;
+  background: transparent;
   border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: red;
+  background: green;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #580e0e;
+  background: #006700;
 }
 
 div.dropdown-block {
@@ -330,7 +342,7 @@ div.dropdown-block:hover div.dropdown-content :last-child {
 }
 
 div.dropdown-block:hover div.dropdown-header {
-  background-color: #ff6666;
+  background-color: #00e600;
 }
 
 div.dropdown-block:hover div.dropdown-header p {
@@ -383,7 +395,7 @@ div.dropdown-block div.dropdown-header p, div.dropdown-block div.dropdown-conten
 div.dropdown-block div.dropdown-header {
   height: 100%;
   z-index: 1;
-  background-color: red;
+  background-color: green;
 }
 
 div.dropdown-block div.dropdown-header p {
@@ -403,7 +415,7 @@ div.dropdown-block div.dropdown-content > div {
   position: relative;
   -webkit-transform: translateY(calc( -100% * calc( var(--order) - 1 )));
           transform: translateY(calc( -100% * calc( var(--order) - 1 )));
-  background-color: red;
+  background-color: green;
 }
 
 div.dropdown-block div.dropdown-content > div:active p {
@@ -416,7 +428,7 @@ div.dropdown-block div.dropdown-content > div p {
 }
 
 div.dropdown-block div.dropdown-content > div:hover {
-  background-color: #ff6666;
+  background-color: #00e600;
 }
 
 div.dropdown-block div.dropdown-content > div:hover p {
@@ -424,7 +436,7 @@ div.dropdown-block div.dropdown-content > div:hover p {
 }
 
 div.dropdown-block div.dropdown-content > div:hover:active {
-  background-color: #ff9999;
+  background-color: #1aff1a;
 }
 
 .lantern {

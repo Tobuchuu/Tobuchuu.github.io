@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap%27');
 
-$theme_main_color_1:red;
+$theme_main_color_1:green;
 $theme_main_color_2:darken($theme_main_color_1, 20%);
 
-$theme_secound_color_1:gold;
+$theme_secound_color_1:white;
 $theme_secound_color_2:darken($theme_secound_color_1, 20%);
 
 /* Code from https://stackoverflow.com/a/6900392 */
@@ -53,8 +53,9 @@ html{
                 justify-content: left;
             
                 .logo{
-                    height: 100px;
+                    height: 80px;
                     width: 100px;
+                    padding-top: 10px;
                     margin-left: 20px;
                     // min-width: 400px;
                     // display: flex;
@@ -182,32 +183,36 @@ html{
     
             div.bottom-container{
                 width: 100vw;
-                height: 40vh;
+                min-height: 40vh;
                 background-color: black;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                padding: 30px;
 
-                // Code from https://www.w3schools.com/css/css_grid.asp
-                div.grid-container{
-                    display: grid;
-                    grid-template-columns: auto auto auto;
-                    margin-top: 30px;
-                    gap:  0px 100px;
+                div{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    width: 80%;
 
-                    div.grid-item:first-child, div.grid-item:nth-child(2), div.grid-item:nth-child(3){
-                        font-size: 30px;
-                        color: red;
-                    }
-
-                    div.grid-item{
+                    div{
                         display: flex;
                         flex-direction: column;
-                        margin-bottom: 25px;
-                        color: white;
-                        font-size: medium;
+                        justify-content: flex-start;
+
+                        h2{
+                            font-size: 30px;
+                            color: $theme_main_color_1;
+                        }
+
+                        & > *{
+                            margin-bottom: 25px;
+                            font-size: 80%;
+                        }
                     }
+                    
                 }
             
                 p, a:link, a:visited, a:hover, a:active, h1, h2, h3, h4, h5, h6{
@@ -251,7 +256,7 @@ html{
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: $theme_main_color_2; 
+    background: transparent; 
     border-radius: 10px;
 }
 
@@ -263,7 +268,7 @@ html{
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(88, 14, 14); 
+    background: darken($theme_main_color_1, 5%); 
 }
 
 //#endregion ScrollBar
