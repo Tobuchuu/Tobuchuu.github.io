@@ -1,8 +1,15 @@
 //#region Libraries/Code from somewhere else
+
 // Code from https://stackoverflow.com/a/39914235
 function sleep(ms){
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+// Code from https://www.geeksforgeeks.org/scroll-to-the-top-of-the-page-using-javascript-jquery/#:~:text=function%20scrollToTop,0%2C%200
+function scrollToTop(){
+    document.getElementById("top").scrollIntoView()
+}
+
 //#endregion Libraries/Code from somewhere else
 //#region Global variables
 var uri_parameters = new URLSearchParams(window.location.search);
@@ -85,10 +92,15 @@ function after_load_document(){
 // If `fn` is null, then it will try to load a default template ("default.html")
 // If `ignore_same_page` is true, then it will load the page, even if the last reported loaded page is the same as the current request.
 async function load_document(fn, dest, ignore_same_page=false){
+    let replacement_html = null;
+    let load_to_top = false;
+
+    if (fn != null && fn.slice(-1) == "#"){
+        fn = fn.slice(0, -1);
+        load_to_top = true;
+    }
     if (fn == load_document_default_file_name){fn = null;}
     if (dest == undefined || dest == null){dest = load_document_default_dest;}
-
-    let replacement_html = null;
 
     // Step 1: Check if it should load in the first place.
     if (dest.getAttribute("loaded") == `${fn}`){
@@ -135,7 +147,16 @@ async function load_document(fn, dest, ignore_same_page=false){
         loaded_pages_cache[`${fn}`] = replacement_html;
 
         // Update URL
-        history.pushState({}, null, (fn == null) ? window.location.pathname : `?d=${fn}`);
+        history.pushState(
+            {},
+            null,
+            
+            (fn == null) ? window.location.pathname : `?d=${fn}`
+        );
+
+        if (load_to_top){
+            scrollToTop()
+        }
 
         Array.from(dest.getElementsByClassName("run-after-load")).forEach(i => {
             eval(i.innerHTML);

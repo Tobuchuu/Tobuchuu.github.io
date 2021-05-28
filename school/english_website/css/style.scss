@@ -293,11 +293,7 @@ div.dropdown-block{
             @include unselectable;
             transition: color 0.2s;
             
-
-        }
-
-        &:active p{
-            transform: scale(0.9,0.9) !important;
+            transition: transform 0.1s !important;
         }
     }
 
@@ -324,6 +320,14 @@ div.dropdown-block{
             transform: translateY( calc( -100% * calc( var(--order) - 1 ) ) );
             background-color: $color_sub_button;
 
+
+            &:active{
+                p{
+                    transform: scale(0.9,0.9) !important;
+                }
+                
+            }
+
             p{
                 color: $color_sub_button_text;
             }
@@ -332,6 +336,9 @@ div.dropdown-block{
                 background-color: $color_sub_button_hover;
                 p{
                     color: $color_sub_button_hover_text;
+                }
+                &:active{
+                    background-color: lighten($color_sub_button_hover, 10%);
                 }
             }
 
