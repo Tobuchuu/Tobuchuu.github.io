@@ -7,7 +7,11 @@ function sleep(ms){
 
 // Code from https://www.geeksforgeeks.org/scroll-to-the-top-of-the-page-using-javascript-jquery/#:~:text=function%20scrollToTop,0%2C%200
 function scrollToTop(){
+    // Code from https://stackoverflow.com/a/24191692
     document.getElementById("top").scrollIntoView()
+
+    // Code from https://stackoverflow.com/a/14623413
+    document.body.scrollTop = 0;
 }
 
 //#endregion Libraries/Code from somewhere else
@@ -99,7 +103,7 @@ async function load_document(fn, dest, ignore_same_page=false){
         fn = fn.slice(0, -1);
         load_to_top = true;
     }
-    if (fn == load_document_default_file_name){fn = null;}
+    if (fn == load_document_default_file_name || fn == "null"){fn = null;}
     if (dest == undefined || dest == null){dest = load_document_default_dest;}
 
     // Step 1: Check if it should load in the first place.
