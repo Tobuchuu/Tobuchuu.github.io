@@ -60,7 +60,13 @@ html body div.main-container div.navbar {
 }
 
 html body div.main-container div.navbar .logo {
-  height: 100%;
+  height: 100px;
+  width: 100px;
+  margin-left: 20px;
+}
+
+html body div.main-container div.navbar .bamboo {
+  width: 100px;
 }
 
 html body div.main-container div.navbar > p {
@@ -91,7 +97,9 @@ html body div.main-container div.navbar div.navigation-items {
 html body div.main-container div.body-container {
   min-height: 90vh;
   width: 100%;
-  background-image: url(../img/bgr.jpg);
+  background-image: url(../img/background_1980x1080.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 html body div.main-container div.body-container #loader-here {
@@ -113,6 +121,12 @@ html body div.main-container div.body-container #loader-here.document-\.\/conten
   /* text|padding|image */
 }
 
+html body div.main-container div.body-container #loader-here.document-\.\/content\/aleksandar\/festivals\.html div.txt-container img {
+  width: 50% !important;
+  margin: auto;
+  padding: 2ch;
+}
+
 html body div.main-container div.body-container #loader-here div.txt-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -126,7 +140,7 @@ html body div.main-container div.body-container #loader-here div.txt-container {
           align-items: flex-start;
   width: 70%;
   margin: 40px auto 40px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
   padding: 25px;
   line-height: 2em;
   border-radius: 10px;
@@ -137,6 +151,7 @@ html body div.main-container div.body-container #loader-here div.txt-container s
 }
 
 html body div.main-container div.body-container #loader-here div.txt-container span.special-link {
+  cursor: pointer;
   text-decoration: underline;
 }
 
@@ -194,6 +209,33 @@ html body div.main-container div.bottom-container {
           justify-content: center;
 }
 
+html body div.main-container div.bottom-container div.grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  margin-top: 30px;
+  gap: 0px 100px;
+}
+
+html body div.main-container div.bottom-container div.grid-container div.grid-item:first-child, html body div.main-container div.bottom-container div.grid-container div.grid-item:nth-child(2), html body div.main-container div.bottom-container div.grid-container div.grid-item:nth-child(3) {
+  font-size: 30px;
+  color: red;
+}
+
+html body div.main-container div.bottom-container div.grid-container div.grid-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 35px;
+  color: white;
+  font-size: medium;
+}
+
 html body div.main-container div.bottom-container p, html body div.main-container div.bottom-container a:link, html body div.main-container div.bottom-container a:visited, html body div.main-container div.bottom-container a:hover, html body div.main-container div.bottom-container a:active, html body div.main-container div.bottom-container h1, html body div.main-container div.bottom-container h2, html body div.main-container div.bottom-container h3, html body div.main-container div.bottom-container h4, html body div.main-container div.bottom-container h5, html body div.main-container div.bottom-container h6 {
   color: white;
 }
@@ -238,7 +280,7 @@ html body img.easter-egg-1 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: gold;
+  background: #990000;
   border-radius: 10px;
 }
 
@@ -250,7 +292,7 @@ html body img.easter-egg-1 {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #580e0e;
 }
 
 div.dropdown-block {

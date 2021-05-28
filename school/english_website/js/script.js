@@ -185,11 +185,7 @@ async function load_document(fn, dest, ignore_same_page=false){
             {
                 "label": "Religion",
                 "document": "./content/sanna/religion.html"
-            },
-            {
-                "label": "option 1",
-                "document": "text.html"
-            },
+            }
         ],
         'dest': document.getElementsByClassName("navigation-items")[0]
     },
