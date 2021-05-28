@@ -6,6 +6,14 @@ $theme_main_color_2:darken($theme_main_color_1, 20%);
 $theme_secound_color_1:gold;
 $theme_secound_color_2:darken($theme_secound_color_1, 20%);
 
+/* Code from https://stackoverflow.com/a/6900392 */
+@mixin unselectable{
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -263,6 +271,7 @@ div.dropdown-block{
         align-items: center;
         justify-content: center;
         padding: 15px;
+        cursor: pointer;
 
         // Everything gets border radius everywhere when not expanded
         border-radius: $border_radius_size;
@@ -271,10 +280,15 @@ div.dropdown-block{
                     $animation_dropdown_close,
                     background-color 0.2s;
         p{
+            @include unselectable;
             transition: color 0.2s;
+            
+
         }
 
-        cursor: pointer;
+        &:active p{
+            transform: scale(0.9,0.9) !important;
+        }
     }
 
     div.dropdown-header{

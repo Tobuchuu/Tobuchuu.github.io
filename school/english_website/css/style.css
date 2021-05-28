@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap%27");
+/* Code from https://stackoverflow.com/a/6900392 */
 * {
   margin: 0;
   padding: 0;
@@ -279,17 +280,30 @@ div.dropdown-block div.dropdown-header, div.dropdown-block div.dropdown-content 
       -ms-flex-pack: center;
           justify-content: center;
   padding: 15px;
+  cursor: pointer;
   border-radius: 15px;
   -webkit-transition: border-radius 0.2s 0.2s ease-in-out, background-color 0.2s, -webkit-transform 0.2s 0.2s ease-in-out;
   transition: border-radius 0.2s 0.2s ease-in-out, background-color 0.2s, -webkit-transform 0.2s 0.2s ease-in-out;
   transition: border-radius 0.2s 0.2s ease-in-out, transform 0.2s 0.2s ease-in-out, background-color 0.2s;
   transition: border-radius 0.2s 0.2s ease-in-out, transform 0.2s 0.2s ease-in-out, background-color 0.2s, -webkit-transform 0.2s 0.2s ease-in-out;
-  cursor: pointer;
 }
 
 div.dropdown-block div.dropdown-header p, div.dropdown-block div.dropdown-content > div p {
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
   -webkit-transition: color 0.2s;
   transition: color 0.2s;
+}
+
+div.dropdown-block div.dropdown-header:active p, div.dropdown-block div.dropdown-content > div:active p {
+  -webkit-transform: scale(0.9, 0.9) !important;
+          transform: scale(0.9, 0.9) !important;
 }
 
 div.dropdown-block div.dropdown-header {
