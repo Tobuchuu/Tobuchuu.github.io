@@ -8,11 +8,35 @@ function sleep(ms){
 // Code from https://www.geeksforgeeks.org/scroll-to-the-top-of-the-page-using-javascript-jquery/#:~:text=function%20scrollToTop,0%2C%200
 function scrollToTop(){
     // Code from https://stackoverflow.com/a/24191692
-    document.getElementById("top").scrollIntoView()
+    document.getElementById("top").scrollIntoView();
 
     // Code from https://stackoverflow.com/a/14623413
     document.body.scrollTop = 0;
 }
+
+// Code from https://www.w3schools.com/howto/howto_js_fullscreen.asp#:~:text=fullscreen%20document
+var elem = document.documentElement;
+/* View in fullscreen */
+function openFullscreen() {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+      elem.msRequestFullscreen();
+    }
+  }
+  
+  /* Close fullscreen */
+  function closeFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+      document.msExitFullscreen();
+    }
+  }
 
 //#endregion Libraries/Code from somewhere else
 //#region Global variables
@@ -234,7 +258,16 @@ document.querySelectorAll('p.easter-egg-1')[0].onclick = async function(){
     let a = document.createElement("img");
     a.src = "https://tinyurl.com/2cvt85n8";
     a.classList.add("easter-egg-1");
+
+    // Code from https://stackoverflow.com/a/4236294
+    a.addEventListener('contextmenu', function(ev){
+        ev.preventDefault();
+        return false;
+    }, false);
+
     document.body.appendChild(a);
+
+    openFullscreen()
 };
 
 /* Sets onclick events for all drop down buttons */
