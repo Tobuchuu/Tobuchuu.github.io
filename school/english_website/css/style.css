@@ -215,7 +215,7 @@ html body div.main-container div.bottom-container {
   padding: 30px;
 }
 
-html body div.main-container div.bottom-container div {
+html body div.main-container div.bottom-container div.credits {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -229,7 +229,7 @@ html body div.main-container div.bottom-container div {
   width: 80%;
 }
 
-html body div.main-container div.bottom-container div div {
+html body div.main-container div.bottom-container div.credits div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -242,14 +242,19 @@ html body div.main-container div.bottom-container div div {
           justify-content: flex-start;
 }
 
-html body div.main-container div.bottom-container div div h2 {
+html body div.main-container div.bottom-container div.credits div h2 {
   font-size: 30px;
   color: green;
 }
 
-html body div.main-container div.bottom-container div div > * {
+html body div.main-container div.bottom-container div.credits div > * {
   margin-bottom: 25px;
   font-size: 80%;
+}
+
+html body div.main-container div.bottom-container div.credits div.credits-writers p span {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 html body div.main-container div.bottom-container p, html body div.main-container div.bottom-container a:link, html body div.main-container div.bottom-container a:visited, html body div.main-container div.bottom-container a:hover, html body div.main-container div.bottom-container a:active, html body div.main-container div.bottom-container h1, html body div.main-container div.bottom-container h2, html body div.main-container div.bottom-container h3, html body div.main-container div.bottom-container h4, html body div.main-container div.bottom-container h5, html body div.main-container div.bottom-container h6 {

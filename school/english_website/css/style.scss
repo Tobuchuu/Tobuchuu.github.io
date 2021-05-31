@@ -195,7 +195,7 @@ html{
                 justify-content: center;
                 padding: 30px;
 
-                div{
+                div.credits{
                     display: flex;
                     flex-direction: row;
                     justify-content: space-evenly;
@@ -214,6 +214,13 @@ html{
                         & > *{
                             margin-bottom: 25px;
                             font-size: 80%;
+                        }
+                    }
+
+                    div.credits-writers{
+                        p span{
+                            text-decoration: underline;
+                            cursor: pointer;
                         }
                     }
                     
