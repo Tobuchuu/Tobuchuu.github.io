@@ -145,6 +145,9 @@ async function load_document(fn, dest, ignore_same_page=false){
 
         if (!ignore_same_page){
             console.log("Same page, ignoring request");
+            if (load_to_top){
+                scrollToTop()
+            }
             return;
         }
         console.log("Was same page, but ignore_same_page is true")
@@ -185,10 +188,7 @@ async function load_document(fn, dest, ignore_same_page=false){
         loaded_pages_cache[`${fn}`] = replacement_html;
 
         // Update URL
-        history.pushState(
-            {},
-            null,
-            
+        history.pushState({},null,
             (fn == null) ? window.location.pathname : `?d=${fn}`
         );
 
@@ -286,5 +286,11 @@ Array.from(document.getElementsByClassName("dropdown-button")).forEach(i => {
         load_document(i.getAttribute("document"))
     };
 });
+
+// Fixes a bug where when you press the back button, it wouldnt update the page, but it would just
+// update the URL.
+window.addEventListener('popstate', function(event) {
+    load_document(new URLSearchParams(window.location.search).get("d"))
+}, false);
 
 //#endregion EVENTS
