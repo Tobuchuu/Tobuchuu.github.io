@@ -1,5 +1,25 @@
 //#region Libraries/Code from somewhere else
 
+// Code from https://davidwalsh.name/javascript-debounce-function
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
 // Code from https://stackoverflow.com/a/39914235
 function sleep(ms){
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -104,16 +124,6 @@ function after_load_document(){
             i.title = "Click the image to go to the source";
         };
     });
-
-    // Array.from(document.getElementsByClassName("txt-container")[0].getElementsByClassName("ancher-me")).forEach(i => {
-    //     if (i.id == ""){i.id = i.innerHTML;}
-
-    //     let ancher = document.createElement("a");
-    //     ancher.text = "¶";
-    //     ancher.classList.add("ancher");
-    //     ancher.href = `#${i.id}`;
-    //     i.appendChild(ancher);
-    // });
 }
 
 
@@ -278,35 +288,3 @@ Array.from(document.getElementsByClassName("dropdown-button")).forEach(i => {
 });
 
 //#endregion EVENTS
-
-
-
-//#region Lantern Code
-function spawn_latern(){
-    let dest = document.getElementsByClassName("lantern-holder")[0];
-    let lantern = document.createElement("img");
-
-    lantern.src = "https://freesvg.org/img/paper_lantern2.png";
-    lantern.classList.add("lantern");
-    lantern.style.top = document.getElementsByClassName("body-container")[0].offsetHeight + "px";
-
-    dest.appendChild(lantern);
-}
-function update_lanterns(){
-    Array.from(document.getElementsByClassName("lantern")).forEach(current_lantern => {
-        current_lantern.style.top = `${parseFloat(current_lantern.style.top, 10) - 1}px`;
-        let a = parseInt(current_lantern.style.top)
-        let b = parseInt(current_lantern.offsetHeight)
-
-        // console.log(a,b, b-a,(a*-1)-b)
-
-        if (a + b < 0){
-            current_lantern.remove()
-        }
-    });
-}
-
-// Code from https://stackoverflow.com/a/5638797
-// var t=setInterval(spawn_latern,1000);
-// var y=setInterval(update_lanterns,10);
-//#endregion
