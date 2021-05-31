@@ -74,10 +74,6 @@ html body div.main-container div.navbar .bamboo {
   width: 100px;
 }
 
-html body div.main-container div.navbar > p {
-  background-color: blue;
-}
-
 html body div.main-container div.navbar div.navigation-items {
   display: -webkit-box;
   display: -ms-flexbox;
