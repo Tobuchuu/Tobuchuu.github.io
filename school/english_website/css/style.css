@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap%27");
 /* Code from https://stackoverflow.com/a/6900392 */
 * {
@@ -17,6 +18,14 @@ html body {
   height: 100vh;
   overflow: overlay;
   font-size: 120%;
+  /* This is a stupid fix. But i dont want to rework the website 😎 */
+  height: 90vh;
+  margin-top: 10vh;
+}
+
+html body div.main-container div.navbar {
+  position: fixed;
+  top: 0px;
 }
 
 html body div.main-container {
@@ -432,140 +441,5 @@ div.dropdown-block div.dropdown-content > div:hover p {
 
 div.dropdown-block div.dropdown-content > div:hover:active {
   background-color: #1aff1a;
-}
-
-@-webkit-keyframes face_grow {
-  from {
-    width: 200px;
-    height: 200px;
-  }
-  to {
-    width: 450vw;
-    height: 450vh;
-  }
-}
-
-@keyframes face_grow {
-  from {
-    width: 200px;
-    height: 200px;
-  }
-  to {
-    width: 450vw;
-    height: 450vh;
-  }
-}
-
-@-webkit-keyframes open_mouth {
-  from {
-    height: 10px;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-  }
-  to {
-    height: 100px;
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
-}
-
-@keyframes open_mouth {
-  from {
-    height: 10px;
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-  }
-  to {
-    height: 100px;
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
-}
-
-@-webkit-keyframes open_mouth_eyes {
-  from {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-  }
-  to {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
-}
-
-@keyframes open_mouth_eyes {
-  from {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-  }
-  to {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
-}
-
-@-webkit-keyframes fade_out_face {
-  from {
-    opacity: 100;
-  }
-  to {
-    opacity: 0;
-    display: none;
-  }
-}
-
-@keyframes fade_out_face {
-  from {
-    opacity: 100;
-  }
-  to {
-    opacity: 0;
-    display: none;
-  }
-}
-
-.loader {
-  background-color: rgba(0, 0, 0, 0.507);
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-animation: fade_out_face 1s 4s normal forwards;
-          animation: fade_out_face 1s 4s normal forwards;
-}
-
-.loader p {
-  color: white;
-}
-
-.loader div.face svg {
-  -webkit-animation: face_grow 2s 2s normal forwards;
-          animation: face_grow 2s 2s normal forwards;
-}
-
-.loader div.face svg #mouth {
-  position: relative;
-  -webkit-animation: open_mouth 1s normal forwards;
-          animation: open_mouth 1s normal forwards;
-}
-
-.loader div.face svg #left-eye, .loader div.face svg #right-eye {
-  position: relative;
-  -webkit-animation: open_mouth_eyes 1s normal forwards;
-          animation: open_mouth_eyes 1s normal forwards;
 }
 /*# sourceMappingURL=style.css.map */

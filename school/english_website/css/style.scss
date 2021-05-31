@@ -29,6 +29,15 @@ html{
         height: 100vh;
         overflow: overlay;
         font-size: 120%;
+
+
+        /* This is a stupid fix. But i dont want to rework the website 😎 */
+        height: 90vh;
+        margin-top: 10vh;
+        div.main-container div.navbar{
+            position: fixed;
+            top: 0px;
+        }
     
         div.main-container{
             display: flex;
@@ -414,79 +423,3 @@ div.dropdown-block{
     }
 }
 //#endregion Custom Dropdown Styling
-//#region experimental
-@keyframes face_grow{
-    from{
-        width: 200px;
-        height: 200px;
-    }
-    to{
-        width: 450vw;
-        height: 450vh;
-    }
-}
-@keyframes open_mouth{
-    from{
-        height: 10px;
-        transform: translateY(0px);
-    }
-    to{
-        height: 100px;
-        transform: translateY(-50px);
-    }
-}
-@keyframes open_mouth_eyes{
-    from{
-        transform: translateY(0px);
-    }
-    to{
-        transform: translateY(-50px);
-    }
-}
-@keyframes fade_out_face{
-    from{
-        opacity: 100;
-    }
-    to{
-        opacity: 0;
-        display: none;
-    }
-}
-
-.loader{
-    background-color: rgba(0, 0, 0, 0.507);
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    p{
-        color: white;
-    }
-
-    div.face{
-        svg{
-            animation: face_grow 2s 2s normal forwards;
-            #mouth{
-                position: relative;
-                animation: open_mouth 1s normal forwards;
-
-                // clip-path: inset(10px 20px 30px 40px);
-            }
-
-            #left-eye, #right-eye{
-                position: relative;
-                animation: open_mouth_eyes 1s normal forwards;
-            }
-        }
-        
-    }
-    animation: fade_out_face 1s 4s normal forwards;
-}
-//#endregion experimental
