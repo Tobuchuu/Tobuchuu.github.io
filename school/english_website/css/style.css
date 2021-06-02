@@ -23,6 +23,12 @@ html body {
   margin-top: 10vh;
 }
 
+@media only screen and (max-width: 667px) {
+  html body {
+    font-size: 75%;
+  }
+}
+
 html body div.main-container div.navbar {
   position: fixed;
   top: 0px;
@@ -70,8 +76,23 @@ html body div.main-container div.navbar .logo {
   margin-left: 20px;
 }
 
+@media only screen and (max-width: 667px) {
+  html body div.main-container div.navbar .logo {
+    height: 50px;
+    width: unset;
+    padding-top: 20px;
+    margin: 0px 11px 0px 11px;
+  }
+}
+
 html body div.main-container div.navbar .bamboo {
   width: 100px;
+}
+
+@media only screen and (max-width: 667px) {
+  html body div.main-container div.navbar .bamboo {
+    display: none;
+  }
 }
 
 html body div.main-container div.navbar div.navigation-items {
@@ -93,6 +114,14 @@ html body div.main-container div.navbar div.navigation-items {
   margin-left: 30px;
   gap: 40px;
   z-index: -2;
+}
+
+@media only screen and (max-width: 667px) {
+  html body div.main-container div.navbar div.navigation-items {
+    gap: 1px;
+    margin-left: 2px;
+    margin-right: 11px;
+  }
 }
 
 html body div.main-container div.body-container {
@@ -145,6 +174,13 @@ html body div.main-container div.body-container #loader-here div.txt-container {
   padding: 25px;
   line-height: 2em;
   border-radius: 10px;
+}
+
+@media only screen and (max-width: 667px) {
+  html body div.main-container div.body-container #loader-here div.txt-container {
+    width: 95% !important;
+    margin-top: 1em !important;
+  }
 }
 
 html body div.main-container div.body-container #loader-here div.txt-container span.arrow {
@@ -211,6 +247,12 @@ html body div.main-container div.bottom-container {
   padding: 30px;
 }
 
+@media only screen and (max-width: 667px) {
+  html body div.main-container div.bottom-container {
+    display: none;
+  }
+}
+
 html body div.main-container div.bottom-container div.credits {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -243,9 +285,21 @@ html body div.main-container div.bottom-container div.credits div h2 {
   color: green;
 }
 
+@media only screen and (max-width: 667px) {
+  html body div.main-container div.bottom-container div.credits div h2 {
+    font-size: 90% !important;
+  }
+}
+
 html body div.main-container div.bottom-container div.credits div > * {
   margin-bottom: 25px;
   font-size: 80%;
+}
+
+@media only screen and (max-width: 667px) {
+  html body div.main-container div.bottom-container div.credits div > * {
+    font-size: 50% !important;
+  }
 }
 
 html body div.main-container div.bottom-container div.credits div.credits-writers p span {

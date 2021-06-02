@@ -1,5 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap%27');
 
+//#region Code from https://stackoverflow.com/a/49421832/13921835
+$size__site_content_width: 1024px;
+
+// /* Media Queries */ Not necessarily correct, edit these at will 
+$media_queries : (
+    'mobile'    : "only screen and (max-width: 667px)",
+    'tablet'    : "only screen and (min-width: 668px) and (max-width: $size__site_content_width)",
+    'desktop'   : "only screen and (min-width: ($size__site_content_width + 1))",
+    'retina2'   : "only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi)",
+    'retina3'   : "only screen and (-webkit-min-device-pixel-ratio: 3) and (min-resolution: 288dpi)",
+    'landscape' : "screen and (orientation:landscape) ",    
+    'portrait'  : "screen and (orientation:portrait) "
+);
+
+@mixin for_breakpoint($breakpoints) {
+    $conditions : ();
+    @each $breakpoint in $breakpoints {
+        // If the key exists in the map
+        $conditions: append(
+            $conditions,
+            #{inspect(map-get($media_queries, $breakpoint))},
+            comma
+        );
+    }
+
+    @media #{$conditions} {
+        @content;
+    }
+
+}
+//#endregion
+
+
 $navbar_height: 10vh;
 $content_height: 100vh - $navbar_height;
 
@@ -32,6 +65,10 @@ html{
         height: 100vh;
         overflow: overlay;
         font-size: 120%;
+
+        @include for_breakpoint(mobile){
+            font-size: 75%;
+        }
 
         /* This is a stupid fix. But i dont want to rework the website 😎 */
         height: $content_height;
@@ -67,10 +104,19 @@ html{
                     // display: flex;
                     // justify-content: center;
                     // align-items: center;
+                    @include for_breakpoint(mobile){
+                        height: 50px;
+                        width: unset;
+                        padding-top: 20px;
+                        margin: 0px 11px 0px 11px ;
+                    }
                 }
 
                 .bamboo{
                     width: 100px;
+                    @include for_breakpoint(mobile){
+                        display: none;
+                    }
                 }
             
                 div.navigation-items{
@@ -85,6 +131,12 @@ html{
                     gap: 40px;
                 
                     z-index: -2;
+
+                    @include for_breakpoint(mobile){
+                        gap: 1px;
+                        margin-left: 2px;
+                        margin-right: 11px;
+                    }
                 }
             }
     
@@ -146,6 +198,11 @@ html{
                         line-height: 2em;
                         border-radius: 10px;
 
+                        @include for_breakpoint(mobile){
+                            width: 95% !important;
+                            margin-top: 1em !important;
+                        }
+                        
                         span.arrow{
                             font-size: 170%;
                         }
@@ -192,6 +249,9 @@ html{
                 align-items: center;
                 justify-content: center;
                 padding: 30px;
+                @include for_breakpoint(mobile){
+                    display: none;
+                }
 
                 div.credits{
                     display: flex;
@@ -206,12 +266,19 @@ html{
 
                         h2{
                             font-size: 30px;
+                            @include for_breakpoint(mobile){
+                                font-size: 90% !important;
+                            }
                             color: $theme_main_color_1;
                         }
 
                         & > *{
                             margin-bottom: 25px;
                             font-size: 80%;
+                            @include for_breakpoint(mobile){
+                                font-size: 50% !important;
+                            }
+                            
                         }
                     }
 
