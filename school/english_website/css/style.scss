@@ -133,7 +133,7 @@ html{
                     z-index: -2;
 
                     @include for_breakpoint(mobile){
-                        gap: 1px;
+                        gap: 1em;
                         margin-left: 2px;
                         margin-right: 11px;
                     }
