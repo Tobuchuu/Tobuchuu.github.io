@@ -188,9 +188,8 @@ async function load_document(fn, dest, ignore_same_page=false){
         loaded_pages_cache[`${fn}`] = replacement_html;
 
         // Update URL
-        history.pushState({},null,
-            (fn == null) ? window.location.pathname : `?d=${fn}`
-        );
+        history.pushState({}, null, `?d=${fn}`);
+        window.location.hash = window.location.href;
 
         if (load_to_top){
             scrollToTop()

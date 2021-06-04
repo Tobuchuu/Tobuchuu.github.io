@@ -1,0 +1,8 @@
+{
+    "pandasight": {
+        "include": true,
+        "url": "./school/english_website/index.html",
+        "title":"PandaSight",
+        "description":"Website made for a school project"
+    }
+}
