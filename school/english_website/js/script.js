@@ -189,7 +189,7 @@ async function load_document(fn, dest, ignore_same_page=false){
 
         // Update URL
         history.pushState({}, null, `?d=${fn}`);
-        window.location.hash = window.location.href;
+        update_hash();
 
         if (load_to_top){
             scrollToTop()
