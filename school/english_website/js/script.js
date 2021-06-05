@@ -260,7 +260,7 @@ load_document(uri_parameters.get("d"), null, true)
 
 // Returns to main page after user clicks the logo at top left
 document.getElementsByClassName("logo")[0].onclick = function(){
-    load_document(null);
+    load_document('null#');
 };
 
 // Easter egg 1

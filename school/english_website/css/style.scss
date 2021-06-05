@@ -67,6 +67,7 @@ html{
         height: 100vh;
         overflow: overlay;
         font-size: 120%;
+        background-color: black;
 
         @include for_breakpoint(mobile){
             font-size: 75%;
@@ -96,6 +97,7 @@ html{
                 display: flex;
                 flex-direction: row;
                 justify-content: left;
+                border-bottom: 0.2em $theme_main_color_1 solid; 
             
                 .logo{
                     height: 80px;
@@ -146,9 +148,20 @@ html{
                 min-height: $content_height;
                 width: 100%;
                 // background-image: url(../img/bgr.jpg);
-                background-image: url(../img/background_1980x1080.jpg);
-                background-repeat: no-repeat;
-                background-attachment: fixed;
+                
+               
+                div.bg-img{
+                    background-image: url(../img/background_1980x1080.jpg);
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    position: absolute;
+                    top: $navbar_height;
+                    height: $content_height;
+                    width: 100%;
+                    z-index: -1;
+
+                    filter: blur(5px);
+                }
 
 
                 // // Code from https://stackoverflow.com/a/44568832
@@ -177,8 +190,13 @@ html{
                         }
                     }
                     &.document-\.\/content\/sanna\/religion\.html{
-                        div.txt-container ul li div{
-                            grid-template-columns: 70% 5% auto; /* text|padding|image */
+                        div.txt-container{
+                            ul li div{
+                                grid-template-columns: 70% 5% auto; /* text|padding|image */
+                            }
+                            img[alt="islam"]{
+                                padding: 10px;
+                            }
                         }
                     }
                     &.document-\.\/content\/aleksandar\/festivals\.html{
@@ -199,6 +217,8 @@ html{
                         padding: 25px;
                         line-height: 2em;
                         border-radius: 10px;
+                        border: 0.2em $theme_main_color_1 solid; 
+                        
 
                         @include for_breakpoint(mobile){
                             width: 95% !important;
@@ -234,9 +254,12 @@ html{
                                 grid-template-rows: min-content;
                             }
                         }
-                        img, iframe{
+                        img:not(.inline-icon), iframe{
                             width: 100%;
                             max-width: 100%;
+                            border: 0.2em $theme_main_color_1 solid;
+                            border-radius: 10px;
+
                         }
                     }
                 }
@@ -251,6 +274,7 @@ html{
                 align-items: center;
                 justify-content: center;
                 padding: 30px;
+                border-top: 0.2em $theme_main_color_1 solid; 
                 @include for_breakpoint(mobile){
                     display: none;
                 }

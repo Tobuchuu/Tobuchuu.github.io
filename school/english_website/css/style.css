@@ -23,6 +23,7 @@ html body {
   height: 100vh;
   overflow: overlay;
   font-size: 120%;
+  background-color: black;
   /* This is a stupid fix. But i dont want to rework the website 😎 */
   height: 90vh;
   margin-top: 10vh;
@@ -72,6 +73,7 @@ html body div.main-container div.navbar {
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
+  border-bottom: 0.2em maroon solid;
 }
 
 html body div.main-container div.navbar .logo {
@@ -132,9 +134,19 @@ html body div.main-container div.navbar div.navigation-items {
 html body div.main-container div.body-container {
   min-height: 90vh;
   width: 100%;
+}
+
+html body div.main-container div.body-container div.bg-img {
   background-image: url(../img/background_1980x1080.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  position: absolute;
+  top: 10vh;
+  height: 90vh;
+  width: 100%;
+  z-index: -1;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
 }
 
 html body div.main-container div.body-container #loader-here {
@@ -154,6 +166,10 @@ html body div.main-container div.body-container #loader-here.document-\.\/conten
   -ms-grid-columns: 70% 5% auto;
       grid-template-columns: 70% 5% auto;
   /* text|padding|image */
+}
+
+html body div.main-container div.body-container #loader-here.document-\.\/content\/sanna\/religion\.html div.txt-container img[alt="islam"] {
+  padding: 10px;
 }
 
 html body div.main-container div.body-container #loader-here.document-\.\/content\/aleksandar\/festivals\.html div.txt-container img {
@@ -179,6 +195,7 @@ html body div.main-container div.body-container #loader-here div.txt-container {
   padding: 25px;
   line-height: 2em;
   border-radius: 10px;
+  border: 0.2em maroon solid;
 }
 
 @media only screen and (max-width: 667px) {
@@ -227,9 +244,11 @@ html body div.main-container div.body-container #loader-here div.txt-container o
       grid-template-rows: min-content;
 }
 
-html body div.main-container div.body-container #loader-here div.txt-container img, html body div.main-container div.body-container #loader-here div.txt-container iframe {
+html body div.main-container div.body-container #loader-here div.txt-container img:not(.inline-icon), html body div.main-container div.body-container #loader-here div.txt-container iframe {
   width: 100%;
   max-width: 100%;
+  border: 0.2em maroon solid;
+  border-radius: 10px;
 }
 
 html body div.main-container div.bottom-container {
@@ -250,6 +269,7 @@ html body div.main-container div.bottom-container {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 30px;
+  border-top: 0.2em maroon solid;
 }
 
 @media only screen and (max-width: 667px) {
