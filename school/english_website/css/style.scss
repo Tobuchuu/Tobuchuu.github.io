@@ -32,14 +32,13 @@ $media_queries : (
 }
 //#endregion
 
-
 $navbar_height: 10vh;
 $content_height: 100vh - $navbar_height;
 
-$theme_main_color_1: green;
+$theme_main_color_1: rgb(128, 0, 0);
 $theme_main_color_2: darken($theme_main_color_1, 20%);
 
-$theme_secound_color_1: white;
+$theme_secound_color_1: rgb(241, 211, 155);
 $theme_secound_color_2: darken($theme_secound_color_1, 20%);
 
 /* Code from https://stackoverflow.com/a/6900392 */
@@ -55,6 +54,9 @@ $theme_secound_color_2: darken($theme_secound_color_1, 20%);
     padding: 0;
     box-sizing: border-box;
     font-family: 'JetBrains Mono', monospace;
+}
+img.flipimg{
+    transform: scaleX(-1);
 }
 
 html{
