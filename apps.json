@@ -1,8 +1,15 @@
 {
     "pandasight": {
         "include": true,
-        "url": "./school/english_website/index.html",
+        "url": "./projects/school/english_website/index.html",
         "title":"PandaSight",
         "description":"Website made for a school project"
+    },
+
+    "ttt": {
+        "include": true,
+        "url": "./projects/personal/tictactoe/index.html",
+        "title": "Tic Tac Toe",
+        "description": "Very epic game"
     }
 }
