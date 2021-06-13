@@ -9,6 +9,140 @@
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
-        
+        <div class="main-container">
+            <div class="game-board"></div>
+            <button onclick="reset();">Reset</button>
+        </div>
+
+        <!-- <div class="message-box-container">
+            <div class="message-container">
+                <div class="message-title">Winner!</div>
+                <div class="message-content">
+                    You have winner! Contratolation
+                    You are very epic gamer
+                    <br>
+                    <div class="message-content-buttonrow">
+                        <button>OK</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div> -->
+
+        <script>
+            var current_player_turn = 1;
+            var winner = 0;
+            var win_count_p1 = 0;
+            var win_count_p2 = 0;
+
+            const game_board = document.querySelector('.game-board');
+
+            function game_box_onclick(){
+                let current_player_tag = 'p' + current_player_turn;
+                let other_player_tag = 'p' + (current_player_turn == 1 ? 2 : 1);
+                let current_player_placed = document.querySelectorAll('.game-box.' + current_player_tag).length;
+
+                // Quick return: If the pressed box is the other players box, and if so, just returns out of the function
+                if (this.classList.contains(other_player_tag)){return;};
+
+                // Quick return: If someone has won, then ignore presses
+                if (winner > 0){return;}
+
+                // Checks if player has placed down all their boxes
+                if (current_player_placed >= 3){
+                    this.classList.remove(current_player_tag);
+                }
+                else{
+                    // Checks if player pressed an empty box. If not, then it wont change turns
+                    if (!this.classList.contains(current_player_tag)){
+                        this.classList.add(current_player_tag);
+
+                        // Change player
+                        current_player_turn = (current_player_turn == 1 ? 2 : 1);
+                    };
+                };
+
+                if (set_winstate() > 0){
+                    if (winner == 1){
+                        console.log('plaeyr 1 win');
+                        win_count_p1 += 1;
+                    }
+                    if (winner == 2){
+                        console.log('player 2 win');
+                        win_count_p2 += 1;
+                    }
+                    reset();
+                }
+            };
+
+            function set_winstate(){
+                let win_patterns = [
+                    [0,1,2],
+                    [3,4,5],
+                    [6,7,8],
+
+                    [0,3,6],
+                    [1,4,7],
+                    [2,5,8],
+
+                    [0,4,8],
+                    [2,4,6]
+                ];
+
+                let boxes = game_board.children;
+
+                win_patterns.forEach(pattern => {
+                    let classLists = pattern.map(x => boxes[x]);
+
+                    let p1_count = 0;
+                    let p2_count = 0;
+                    
+                    classLists.forEach(e => {
+                        if (e.classList.contains("p1")){
+                            p1_count += 1;
+                        }
+                        else if (e.classList.contains("p2")){
+                            p2_count += 1;
+                        }
+                    });
+
+                    if (p1_count == 3){
+                        winner = 1
+                        return;
+                    }
+                    
+                    if (p2_count == 3){
+                        winner = 2
+                        return;
+                    }
+                });
+
+                return winner;
+            }
+
+            function reset(){
+                document.querySelectorAll('.game-box').forEach(e => {
+                    e.classList.remove('p1', 'p2');
+                });
+
+                winner = 0;
+                current_player_turn = 1;
+            }
+
+            function generate_gameboard(){
+                for (let y = 0; y < 3; y++) {
+                    for (let x = 0; x < 3; x++) {
+                        let tmp = document.createElement('div');
+
+                        tmp.classList.add('game-box', 'x' + x, 'y' + y);
+                        tmp.onclick = game_box_onclick;
+
+                        game_board.appendChild(tmp);
+                    };                     
+                };
+            };
+
+            generate_gameboard();
+        </script>
     </body>
 </html>

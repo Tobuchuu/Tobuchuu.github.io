@@ -1,1 +1,108 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+body div.main-container div.game-board {
+  width: 300px;
+  height: 300px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (calc(100%/3))[3];
+      grid-template-columns: repeat(3, calc(100%/3));
+  -ms-grid-rows: (calc(100%/3))[3];
+      grid-template-rows: repeat(3, calc(100%/3));
+}
+
+body div.main-container div.game-board div.game-box {
+  background-color: violet;
+}
+
+body div.main-container div.game-board div.game-box.p1 {
+  background-color: red;
+}
+
+body div.main-container div.game-board div.game-box.p2 {
+  background-color: blue;
+}
+
+body div.message-box-container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body div.message-box-container div.message-container {
+  width: 300px;
+  height: 200px;
+}
+
+body div.message-box-container div.message-container div.message-title {
+  width: 100%;
+  height: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: blue;
+  padding: 0 1em;
+}
+
+body div.message-box-container div.message-container div.message-content {
+  width: 100%;
+  height: calc(100% - 2em);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2em;
+  background-color: white;
+  text-align: center;
+}
+
+body div.message-box-container div.message-container div.message-content div.message-content-buttonrow {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+/*# sourceMappingURL=style.css.map */
