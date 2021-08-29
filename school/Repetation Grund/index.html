@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Octo Shop</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="https://i.pinimg.com/originals/d1/e5/28/d1e528d302d5792ac0d6c63d6dfccb6f.gif" type="image/x-icon">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="main_container">
+
+            <div class="navbar">
+
+                <div class="topbar">
+
+                    <img class="logo" src="https://i.pinimg.com/originals/d1/e5/28/d1e528d302d5792ac0d6c63d6dfccb6f.gif" alt="Logo">
+
+                    <h1 class="title">Octo Shop</h1>
+
+                    <select name="Region" id="" class="reigon-selector">
+                        <option value="" selected disabled hidden>Select Reigon</option>
+                        <option value="se" class="reigon-se">Sverige</option>
+                        <option value="uk" class="reigon-en">UK</option>
+                    </select>
+
+                    <img src="https://www.iconpacks.net/icons/2/free-shopping-cart-icon-3047-thumb.png" alt="CArt" class="cart-logo">
+
+                </div>
+
+                <div class="bottombar">
+
+                    <div class="navigation-items"><p>Home</p></div>
+                    <div class="navigation-items"><p>Products</p></div>
+                    <div class="navigation-items"><p>Contact</p></div>
+
+                </div>
+
+            </div>
+            
+            <div class="body_container">
+
+                <img class="arrow-up" src="https://cdn.discordapp.com/attachments/633644941830258708/881669992872022116/image-removebg-preview_1.png" alt="" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+
+                <div class="image-carousel" id="main-image-carousel">
+                    <div class="image-list">
+                        <img src="https://cdn.discordapp.com/attachments/633644941830258708/881648081437855754/unknown.png" alt="">
+                        <img src="https://cdn.discordapp.com/attachments/633644941830258708/881648791655178300/unknown.png" alt="">
+                        <img src="https://cdn.discordapp.com/attachments/633644941830258708/881651062753353788/unknown.png" alt="">
+
+                    </div>
+                    <div class="arrow-left arrow" onclick="goto_img('prev', 'main-image-carousel')"><p>«</p></div>
+                    <div class="arrow-right arrow" onclick="goto_img('next', 'main-image-carousel')"><p>»</p></div>
+                </div>
+
+                <h1 class="best-seller">Best Sellers</h1>
+
+                <div class="product-container">
+                    <div class="product">
+                        <div class="product-text">
+                            <h2>PinkBlue Boi</h2>
+                            <p>This little boy is pink when happy and blue when mad. Reverse him to change his moods.</p>
+                        </div>
+                        <img class="product-img" src="https://cdn.shopify.com/s/files/1/0552/4406/2873/t/3/assets/pf-1e5e709e--octory.gif?v=1615698905" alt="">
+                        <img class="order-now" src="https://jvsworldfit.com/wp-content/uploads/2019/03/buy-now-button.png" alt="">
+                    </div>
+
+                    <div class="product">
+                        <div class="product-text">
+                            <h2>the purple guy</h2>
+                            <p>This little boy is purple when happy and blue when mad. Reverse him to change his moods.</p>
+                        </div>
+                        <img class="product-img" src="https://cdn.shopify.com/s/files/1/0513/0882/2690/files/Webp.net-gifmaker_1000x.gif?v=1605989651" alt="">
+                        <img class="order-now" src="https://jvsworldfit.com/wp-content/uploads/2019/03/buy-now-button.png" alt="">
+                    </div>
+
+                    <div class="product">
+                        <div class="product-text">
+                            <h2>the purple guy black edition</h2>
+                            <p>This little boy is purple when happy and black when mad. Reverse him to change his moods.</p>
+                        </div>
+                        <img class="product-img" src="https://cdn.shopify.com/s/files/1/0521/0636/3077/products/pink_black.png?v=1607798413" alt="">
+                        <img class="order-now" src="https://jvsworldfit.com/wp-content/uploads/2019/03/buy-now-button.png" alt="">
+                    </div>
+
+                    <div class="product">
+                        <div class="product-text">
+                            <h2>Ocean Man</h2>
+                            <p>This little boy is light blue when happy and dark blue when mad. Reverse him to change his moods.</p>
+                        </div>
+                        <img class="product-img" src="https://cdn.shopify.com/s/files/1/0526/7888/5541/files/pngs_1020x700.png?v=1609915151" alt="">
+                        <img class="order-now" src="https://jvsworldfit.com/wp-content/uploads/2019/03/buy-now-button.png" alt="">
+                    </div>
+
+                    <div class="product">
+                        <div class="product-text">
+                            <h2>Jesse Pinkman</h2>
+                            <p>This little boy is light pink when happy and dark pink when mad. Reverse him to change his moods.</p>
+                        </div>
+                        <img class="product-img" src="https://cdn.shopify.com/s/files/1/0513/0882/2690/files/octopus_1-removebg-preview_1_800x.png?v=1605816435" alt="">
+                        <img class="order-now" src="https://jvsworldfit.com/wp-content/uploads/2019/03/buy-now-button.png" alt="">
+                    </div>
+
+                    <div class="product">
+                        <div class="product-text">
+                            <h2>Ghost Boo</h2>
+                            <p>This is the odd man out because he is a ghost instead of an octopus.</p>
+                        </div>
+                        <img class="product-img" src="https://cdn.discordapp.com/attachments/633644941830258708/881641026807267358/image-removebg-preview.png" alt="">
+                        <img class="order-now" src="https://jvsworldfit.com/wp-content/uploads/2019/03/buy-now-button.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bottom-container">
+
+                <div class="more-info">
+                    <div class="help">
+                        <h2>Help</h2>
+                        <a href="#">Registration</a>
+                        <br>
+                        <a href="#">Points & Cashback</a>
+                    </div>
+
+                    <div class="policies">
+                        <h2>Policies</h2>
+                        <a href="#">Aftersales Policy</a>
+                        <br>
+                        <a href="#">Warranty Policy</a>
+                        <br>
+                        <a href="#">Privacy Policy</a>
+                        <br>
+                        <a href="#">Shipping Policy</a>
+
+                    </div>
+
+                    <div class="company">
+                        <h2>Company</h2>
+                        <a href="#">About</a>
+                        <br>
+                        <a href="#">Branding</a>
+                    </div>
+
+                </div>  
+            </div>
+        </div>
+    </body>
+</html>

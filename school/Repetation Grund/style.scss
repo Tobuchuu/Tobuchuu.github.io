@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: 'Lobster', cursive;
+}
+
+.image-carousel{
+    overflow: hidden;
+    position: relative;
+
+
+    div.arrow{
+        position: absolute;
+        top: 50%;
+
+        font-size: 300%;
+
+        background-color: rgba(218, 208, 214, 0.7);
+
+        border-radius: 50px;
+
+        cursor: pointer;
+
+        &.arrow-left{
+            left: 1em;
+        }
+        &.arrow-right{
+            right: 1em;
+        }
+    }
+
+    .image-list{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+    
+        transition: transform 1s ease-in-out;
+    
+        img{
+            width: 100%;
+        }
+    }
+}
+
+
+
+
+html{
+
+    body{
+
+        overflow-x: hidden;
+
+        div.main_container{
+            width: 100vw;
+
+            div.navbar{
+
+                height: 15vh;
+                width: 100%;
+                background-color: rgb(158, 114, 135);
+
+                div.topbar{
+
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 70%;
+
+                    margin: 0px 80px;
+
+                    .logo{
+                        width: 7%;
+                    }
+
+                    .cart-logo{
+                        width: 3%;
+
+                        padding: 10px;
+                        border-radius: 10px;
+
+                        &:hover{
+                            background-color: rgb(243, 204, 227);
+                            cursor: pointer;
+                        }
+                    }
+
+                    select.reigon-selector{
+                        margin-right: -35%;
+                    }
+                    
+                }
+
+                div.bottombar{
+
+                    background-color: rgb(85, 62, 77);
+
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: left;
+                    height: 30%;
+    
+                    div.navigation-items{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+    
+                        margin-left: 80px;
+                        padding: 10px;
+
+                        border-radius: 5px;
+
+                        &:hover{
+                            background-color: rgb(243, 204, 227);
+                            cursor: pointer;
+                        }
+                    }
+                    
+    
+                    a{
+                        text-decoration: none;
+                        color:white;
+                    }
+                }
+            }
+        
+            
+        
+            div.body_container{
+
+                width: 100vw;
+                background-color: rgb(206, 158, 184);
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3em;
+
+                padding-top: 3em;
+
+                .arrow-up{
+
+                    width: 5%;
+
+                    position: fixed;
+                    right: 2%;
+                    bottom: 2%;
+                    z-index: 1;
+                }
+
+                #main-image-carousel{
+                    width: 90em;
+                    height: 40em;
+
+                    border-radius: 10px;
+
+                    .image-list > *{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .best-seller{
+                    color: white;
+                    text-decoration: underline;
+                }
+
+                div.product-container{
+
+                    width: 76%;
+
+                    display: grid;
+                    grid-template-columns: repeat(3, calc(100% / 3));
+                    grid-template-rows: repeat(3, auto);
+
+
+                    div.product{
+
+                        position: relative;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        background-color: rgb(155, 114, 138);
+
+                        width: 25em;
+                        height: 20em;
+
+                        margin: 0 2.5em 2.5em 2.5em;
+
+                        border-radius: 10px;
+
+                   
+
+                        .product-text{
+                            
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            margin: 1em;
+                            
+                            h2, p{
+                                color: rgb(241, 231, 239);
+                            }
+
+                            h2{
+                                text-decoration: underline;
+                            }
+                        }
+
+                        .order-now{
+
+                            width: 50%;
+
+                            position: absolute;
+                            left: 0px;
+                            bottom: 0px;
+                        }
+
+                        .product-img{
+
+                            position: absolute;
+                            width: 60%;
+
+                            right: 0px;
+                            bottom: 0px;
+
+                            transition: bottom 0.15s ease-in-out;
+                        }
+
+                        &:hover > .product-img{
+                            bottom: 1em;
+                        }
+                        
+                    }
+                }
+            }
+        
+            div.bottom-container{
+                width: 100vw;
+                min-height: 40vh;
+                background-color: rgb(61, 50, 58);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 30px;
+
+                div.more-info{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    gap: 5em;
+
+                    h2{
+                        font-size: 30px;
+                        color: rgb(238, 200, 223);
+                        text-decoration: underline;
+                        cursor: default;
+                    }
+                    a{
+                        text-decoration: none;
+                        cursor: pointer;
+                        color: rgb(238, 200, 223);
+                        line-height: 2em;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        
+        }
+    }
+}
+
+//#region ScrollBar
+
+// Code from https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp
+/* width */
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: pink; 
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(228, 105, 177); 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: darken(rgb(228, 105, 177), 5%); 
+}
+
+//#endregion ScrollBar
