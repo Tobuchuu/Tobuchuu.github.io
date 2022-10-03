@@ -11,5 +11,11 @@
         "url": "./projects/personal/tictactoe/index.html",
         "title": "Tic Tac Toe",
         "description": "Very epic game"
+    },
+    "movieTrailer": {
+        "include": true,
+        "url": "./trailer_review_project/.index.html",
+        "title": "Movie Trailer",
+        "description": "a school project with api"
     }
 }
