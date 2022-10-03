@@ -1,5 +1,5 @@
 var genres_lookup = {} // TO BE GENERATED LATER
-var api_key = "";
+var api_key = new URLSearchParams(window.location.search).get("apikey");
 var api_mode = "discover";
 var api_pageNum = 1;
 var api_query = "";
@@ -9,8 +9,6 @@ var api_outputLocationQuerySelector = ".movies";
 var api_clearOutputLocationOnRefresh = true;
 var api_fromDate = "";
 var api_toDate = "";
-
-api_key = prompt("Enter a API key from https://www.themoviedb.org/");
 
 function refreshAPI(){
     let p = $.param({
