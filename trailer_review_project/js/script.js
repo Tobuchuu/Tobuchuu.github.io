@@ -20,9 +20,7 @@ function refreshAPI(){
         "primary_release_date.gte": api_fromDate,
         "primary_release_date.lte": api_toDate
     })
-
-    // console.log(p);
-
+    
     if (api_clearOutputLocationOnRefresh){
         $(api_outputLocationQuerySelector).html("")
     }
