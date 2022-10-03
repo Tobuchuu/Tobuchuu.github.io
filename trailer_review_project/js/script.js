@@ -151,7 +151,7 @@ function create_movie_card(e, l){
             <div class="rating">${e.vote_average}</div>
             <div class="front">
                 <img class="poster"
-                    src="${e.poster_path == null ? '/img/no-image.png' : "https://www.themoviedb.org/t/p/w440_and_h660_face"+e.poster_path}"
+                    src="${e.poster_path == null ? './img/no-image.png' : "https://www.themoviedb.org/t/p/w440_and_h660_face"+e.poster_path}"
                     alt="Movie Poster">
                 <h3 class="title">${e.title}</h3>
                 <div class="releasDate">
