@@ -1,3 +1,4 @@
 *.map
 .vscode
 trailer_review_project/key.txt
+.DS_Store
