@@ -176,13 +176,17 @@ div.content{
         margin-top: 2em;
 
         div.randomMovie{
-            background-color: antiquewhite;
             width: 60%;
             height: 90%;
             border-radius: 12px;
-            background: rgb(6,138,255);
-            background: linear-gradient(90deg, rgba(6,138,255,1) 0%, rgba(29,233,255,1) 50%, rgba(255,255,255,1) 100%);
-            box-shadow: -4px 3px 3px hsl(214, 62%, 27%);
+            // background: rgb(6,138,255);
+            // background: linear-gradient(90deg, rgba(6,138,255,1) 0%, rgba(29,233,255,1) 50%, rgba(255,255,255,1) 100%);
+            // box-shadow: -4px 3px 3px hsl(214, 62%, 27%);
+
+            ol{
+                list-style-position: inside;
+            }
+
         }
 
         div.list{

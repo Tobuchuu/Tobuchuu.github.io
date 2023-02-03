@@ -4,13 +4,184 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Portfolio</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/scripts.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
     </head>
     <body>
-        <h1>Tobuchuu's website!</h1>
+        <div class="main-container">
+            <div class="nav">
+                <h1 class="logo"><a href="#home">Portfolio</a></h1>
+                <div class="menu">
+                    <a href="#projects" class="items">Projects</a>
+                    <a href="#about" class="items">About</a>
+                    <a href="#contact" class="items">Contact</a>
+                </div>
 
-        <a href="./school/english_website/index.html">Click here to go to the school thing</a>
-        <br>
-        <a href="./trailer_review_project/index.html?apikey=">Click here to go to trailer project (22TE4)</a>
+                <script>
+                    [
+                        [".main-container", "white"],
+                        [".scroll-down-button", "lightgray"],
+                        [".about", "black"]
+                    ].forEach(e=>{
+                        $('.nav').append($(`
+                            <div class="bg" target="${e[0]}" style="background-color: ${e[1]};"></div>
+                        `));
+                    });
+
+                    // Remove this script element after all HTML is generated
+                    $('.nav > script').remove();
+                </script>
+            </div>
+
+            <div class="content">
+                <div class="home" id="home">
+                    <div class="textarea">
+                        <div class="title-section">
+                            <h1 class="title">Hello, I'm Sanna</h1>
+                            <h1 class="sub-title">I'm a programmer and <span class="blue">&lt;/front-end developer&gt;</span></h1>
+                        </div>
+                        <p class="desc">I'm a programmer learning more about web development. Front-end has been my biggest interest so far but I also want to get better at back-end development. I'm always eager to learn more and tackle new challanges.</p>
+                        <div class="socials-container">
+                            <a href="https://www.linkedin.com/in/sanna-%C3%B6berg-412a14230/" target="_blank">
+                                <img src="./img/linkedin.png" alt="Linkedin" class="socials">
+                            </a>
+                            <a href="https://github.com/Tobuchuu" target="_blank">
+                                <img src="./img/github.png" alt="Github" class="socials">
+                            </a>
+                        </div>
+                    </div>
+                    <img src="./img/Sunset_Skating.png" alt="A drawing" class="side-img">
+                </div>
+
+                <div class="scroll-down-button">
+                    <a href="#projects">
+                        <div class="button-container">
+                            <p>Scroll down</p>
+                            <img src="./img/down_arrow.png" alt="Down arrow">
+                        </div>
+                    </a>
+                    
+                </div>
+
+                <div class="projects-container" id="projects">
+                    <script>
+                        [
+                            [
+                                "trailer_review",
+                                "Trailer Review",
+                                "October 2022",
+                                "This project uses an API to fetch data about movie trailers and displays them. It displays the movies poster, rating, description and reviews. <br><br>DISCLAIMER: If you were to check it out, I recommend reading the guide before use.",
+                                ["TMDB API", "JQuery"],
+                                "./trailer_review_project/index.html?apikey=",
+                                "https://github.com/Tobuchuu/Tobuchuu.github.io/tree/main/trailer_review_project",
+                                "./img/trailer_review.png"
+                            ],
+                            [
+                                "php_calender",
+                                "PHP Calender",
+                                "October 2022",
+                                "A calender that uses mostly php to generate its content. It includes namedays and has an event system where you can save anything important happening in your schedual.",
+                                ["JQuery", "php"],
+                                null,
+                                "https://github.com/Tobuchuu/calendarProject",
+                                "./img/calender.png"
+                            ],
+                            [
+                                "connect_four",
+                                "Connect 4 with an AI algorithm",
+                                "Febuary 2022",
+                                "The program uses the minimax algorithm to play against itself or a human player in connect 4. The working version is mainWithWorkingAI2(fixed).py",
+                                ["Python", "numpy"],
+                                null,
+                                "https://github.com/Tobuchuu/Gymnasiearbete-Connect4",
+                                "./img/connectFour.png"
+                            ],
+                            [
+                                "pandasight",
+                                "PandaSight",
+                                "June 2021",
+                                "A project for a school assignment combinding web development and english. It shows small facts you would maybe wanna know for sightseeing in China.",
+                                ["Vanilla JS"],
+                                "./school/english_website/",
+                                "https://github.com/Tobuchuu/Tobuchuu.github.io/tree/main/school/english_website",
+                                "./img/panda.png"
+                            ],
+                            [
+                                "discord_bot",
+                                "Generic Discord Bot",
+                                "Febuary 2021",
+                                "A typical discord bot with a simple coin system were you can claim daily coins and play small games like coin flip.",
+                                ["Python", "discord.py"],
+                                null,
+                                "https://github.com/Tobuchuu/Discord-Bot",
+                                "./img/discordBot.png"
+                            ]
+                        ].forEach(e=>{
+                            $('.projects-container').append(generate_project_section_html(...e));
+                        })
+
+                        // Remove this script element after all HTML is generated
+                        $('.projects-container > script').remove();
+                    </script>
+                </div>
+
+                <div class="about" id="about">
+                    <div class="about-me">    
+                        <h1>About me</h1>
+                        <p>I'm a programmer learning more about web development. Front-end has been my biggest interest so far but I also want to get better at back-end development. I'm always eager to learn more and tackle new challanges.</p>
+                    </div>
+                    <div class="tools">
+                        <div class="tool-item">
+                            <img src="./img/html.png" alt="HTML">
+                            <p>HTML</p>
+                        </div>
+                        <div class="tool-item">
+                            <img src="./img/css.png" alt="CSS">
+                            <p>CSS</p>
+                        </div>
+                        <div class="tool-item">
+                            <img src="./img/js.png" alt="JavaScript">
+                            <p>JavaScript</p>
+                        </div><div class="tool-item">
+                            <img src="./img/php.png" alt="php">
+                            <p>php</p>
+                        </div>
+                        <div class="tool-item">
+                            <img src="./img/c_sharp.png" alt="C-Sharp">
+                            <p>C#</p>
+                        </div>
+                        <div class="tool-item">
+                            <img src="./img/python.png" alt="Python">
+                            <p>Python</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact" id="contact">
+                    <div class="textarea">
+                        <h1>Contact me!</h1>
+                        <p>I'm open for projects, contact me and discuss your project and we'll see what can be achieved.</p>
+                        <p>Check out my socials below!</p>
+                        <div class="socials-container">
+                            <a href="https://www.linkedin.com/in/sanna-%C3%B6berg-412a14230/" target="_blank">
+                                <img src="./img/linkedin.png" alt="Linkedin" class="socials">
+                            </a>
+                            <a href="https://github.com/Tobuchuu" target="_blank">
+                                <img src="./img/github.png" alt="Github" class="socials">
+                            </a>
+                        </div>
+                    </div>
+                    <a href="mailto:sanna.oberg.jobb@gmail.com?subject=Get%20in%20touch!">
+                        <div class="email-me">
+                            Get in touch!
+                        </div>
+                    </a>  
+                    
+                </div>
+            </div>
+        </div>
     </body>
 </html>

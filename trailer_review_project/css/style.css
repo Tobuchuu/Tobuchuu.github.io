@@ -147,13 +147,12 @@ div.content div.topList {
   margin-top: 2em;
 }
 div.content div.topList div.randomMovie {
-  background-color: antiquewhite;
   width: 60%;
   height: 90%;
   border-radius: 12px;
-  background: rgb(6, 138, 255);
-  background: linear-gradient(90deg, rgb(6, 138, 255) 0%, rgb(29, 233, 255) 50%, rgb(255, 255, 255) 100%);
-  box-shadow: -4px 3px 3px hsl(214deg, 62%, 27%);
+}
+div.content div.topList div.randomMovie ol {
+  list-style-position: inside;
 }
 div.content div.topList div.list {
   background-color: antiquewhite;
